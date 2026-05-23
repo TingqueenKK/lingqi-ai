@@ -635,6 +635,13 @@ img { max-width: 100%; display: block; }
 .nav-toggle-btn.open span:nth-child(2) { opacity: 0; }
 .nav-toggle-btn.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
+/* ── 移动端菜单遮罩层 ── */
+.nav-backdrop {
+  display: none; position: fixed; inset: 0; z-index: 98;
+  background: rgba(0,0,0,.4); backdrop-filter: blur(2px);
+}
+.nav-backdrop.open { display: block; }
+
 /* ── 响应式 ── */
 @media (max-width: 900px) {
   .content-grid { grid-template-columns: 1fr; }
@@ -646,22 +653,53 @@ img { max-width: 100%; display: block; }
 @media (max-width: 640px) {
   .page-hero h1 { font-size: 26px; }
   .page-hero p { font-size: 15px; }
-  .nav-links { 
+  .nav-cta { margin-left: 0; }
+  .nav-toggle-btn { display: flex; }
+  /* 移动端导航栏布局：logo + 右侧按钮组（搜索+暗色+汉堡） */
+  .nav-inner { justify-content: space-between; }
+  .nav-links {
     display: none; flex-direction: column;
     position: absolute; top: 64px; left: 0; right: 0;
     background: var(--white); border-bottom: 1px solid var(--border);
     padding: 12px 24px; gap: 4px; z-index: 99;
     box-shadow: var(--shadow-md);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform .25s ease, opacity .25s ease;
   }
-  .nav-links.open { display: flex; }
+  .nav-links.open {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+  }
   .nav-links.open .sub-menu { 
     display: block; position: static;
     box-shadow: none; border: none; border-radius: 0;
     padding: 0 0 0 20px; margin: 0; min-width: auto;
   }
-  .nav-cta { margin-left: 0; }
-  .nav-toggle-btn { display: flex; }
-  .nav-action-btn { display: none; }
+  .nav-actions { display: flex; gap: 4px; margin-left: auto; }
+  .nav-action-btn { display: flex; width: 32px; height: 32px; }
+  .nav-action-btn svg { width: 18px; height: 18px; }
+  /* 工具详情页 header 纵向堆叠 */
+  .tool-header { flex-direction: column; align-items: center; text-align: center; padding: 20px 16px; gap: 12px; }
+  .tool-header-icon { width: 56px; height: 56px; font-size: 28px; border-radius: 14px; }
+  .tool-header-info h2 { font-size: 20px; }
+  .tool-header-meta { justify-content: center; }
+  .tool-header-links { justify-content: center; }
+  /* 工具页 Tab 横向滚动 */
+  .tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; gap: 0; padding-bottom: 4px; }
+  .tab-btn { white-space: nowrap; flex-shrink: 0; padding: 10px 16px; font-size: 13px; }
+  /* 分类标签横向滚动（工具库索引页） */
+  .category-tabs { overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; gap: 8px; padding-bottom: 4px; }
+  .category-tabs::after { content:''; flex-shrink:0; width:12px; }
+  .cat-tab { white-space: nowrap; flex-shrink: 0; padding: 6px 14px; font-size: 13px; }
+  /* 时间线小屏优化 */
+  .plan-timeline { padding-left: 24px; }
+  .plan-timeline::before { left: 8px; width: 2px; }
+  .plan-phase-dot { left: -20px; width: 14px; height: 14px; border-width: 2px; }
+  .plan-phase-header h3 { font-size: 16px; }
+  /* 侧边栏移到内容下方 */
+  .content-sidebar { order: 1; }
   .footer-grid { grid-template-columns: 1fr; }
   .tool-grid { grid-template-columns: 1fr; }
   .video-grid { grid-template-columns: 1fr; }

@@ -189,16 +189,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('nav-toggle');
   const navLinks = document.querySelector('.nav-links');
   if (toggle && navLinks) {
+    // 创建遮罩层
+    const backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    backdrop.id = 'nav-backdrop';
+    document.body.appendChild(backdrop);
+
+    const openMenu = () => {
+      navLinks.classList.add('open');
+      toggle.classList.add('open');
+      backdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      navLinks.classList.remove('open');
+      toggle.classList.remove('open');
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+
     toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      toggle.classList.toggle('open');
+      if (navLinks.classList.contains('open')) closeMenu();
+      else openMenu();
     });
+    backdrop.addEventListener('click', closeMenu);
     // 点击导航链接后关闭菜单
     navLinks.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        toggle.classList.remove('open');
-      });
+      a.addEventListener('click', closeMenu);
     });
   }
 });

@@ -50,6 +50,69 @@
     .pc-card li::before { position:absolute; left:0; }
     .pc-card .pros li::before { content:'✓'; color:var(--success); font-weight:700; }
     .pc-card .cons li::before { content:'✗'; color:#ef4444; font-weight:700; }
+
+    /* 移动端适配 */
+    @media(max-width:640px){
+      .compare-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 24px;
+      }
+      .compare-tabs::after {
+        content: '';
+        flex-shrink: 0;
+        width: 12px;
+      }
+      .compare-tab {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      .table-wrap {
+        position: relative;
+      }
+      /* 表格滚动渐变提示 */
+      .table-wrap::after {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0;
+        width: 32px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,.8));
+        pointer-events: none;
+        border-radius: 0 var(--radius) var(--radius) 0;
+      }
+      .compare-table {
+        font-size: 12px;
+      }
+      .compare-table th,
+      .compare-table td {
+        padding: 8px 10px;
+      }
+      .score-item .name {
+        width: 70px;
+        font-size: 12px;
+      }
+      .score-item {
+        gap: 8px;
+      }
+      .score-item .bar-wrap {
+        height: 20px;
+      }
+      .score-item .bar {
+        font-size: 11px;
+        padding-right: 6px;
+      }
+      .score-bars h3 {
+        font-size: 16px;
+      }
+      .pros-cons {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
