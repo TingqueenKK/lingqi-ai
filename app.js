@@ -41,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
     navInner.appendChild(toggleBtn);
   }
 
+  // ── 计算站点根目录相对路径（适配 GitHub Pages 项目站） ──
+  const _s = document.querySelector('script[src*="app.js"]');
+  const _rootPrefix = (_s && _s.getAttribute('src').includes('/'))
+    ? _s.getAttribute('src').substring(0, _s.getAttribute('src').lastIndexOf('/') + 1)
+    : '';
+
   // ── 搜索功能 ──
   const searchToggle = document.getElementById('search-toggle');
   if (searchToggle && !document.getElementById('search-overlay')) {
@@ -61,43 +67,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 搜索数据（全站工具索引）
     const searchData = [
-      { title: 'Claude', desc: '小龙虾 · Anthropic国际顶级AI对话助手', url: '/tools/chat.html#claude', icon: '🦞' },
-      { title: 'ChatGPT', desc: 'OpenAI · 全球最广泛使用的AI对话工具', url: '/tools/chat.html#chatgpt', icon: '🤖' },
-      { title: 'Kimi', desc: '月之暗面 · 国内直连 · 200万字长文本', url: '/tools/chat.html#kimi', icon: '🌙' },
-      { title: '豆包', desc: '字节跳动 · 多模态AI对话助手', url: '/tools/chat.html#doubao', icon: '🫘' },
-      { title: 'DeepSeek', desc: '深度求索 · 数学代码推理能力突出', url: '/tools/chat.html#deepseek', icon: '🔍' },
-      { title: '通义千问', desc: '阿里巴巴 · 企业级AI应用生态', url: '/tools/chat.html#qwen', icon: '🌿' },
-      { title: 'Midjourney', desc: '国际顶级AI绘图工具 · 艺术风格多样', url: '/tools/image.html#midjourney', icon: '🎨' },
-      { title: '即梦AI', desc: '字节跳动 · 中文提示词 · 图文视频', url: '/tools/image.html#jimeng', icon: '✨' },
-      { title: 'Stable Diffusion', desc: '开源AI绘图 · Fooocus安装 · 100集教程', url: '/tools/image.html#sd', icon: '🖼️' },
-      { title: '可灵AI', desc: '快手 · 文生视频/图生视频 · 国际一流', url: '/tools/video.html#kling', icon: '🎬' },
-      { title: 'Runway Gen-3', desc: '国际领先AI视频生成 · 影视广告', url: '/tools/video.html#runway', icon: '🎞️' },
-      { title: 'Suno', desc: '全球最热门AI音乐生成 · 支持中文', url: '/tools/video.html#suno', icon: '🎵' },
-      { title: 'Udio', desc: 'AI音乐创作 · 人声和编曲细节更优', url: '/tools/video.html#udio', icon: '🎸' },
-      { title: '剪映AI', desc: '字节跳动 · AI字幕/配音/抠图', url: '/tools/video.html#jianying', icon: '✂️' },
-      { title: '腾讯智影', desc: '数字人口播视频制作', url: '/tools/video.html#zhiying', icon: '🎥' },
-      { title: '魔音工坊', desc: '500+声音 · AI配音/有声书', url: '/tools/video.html#moyin', icon: '🎙️' },
-      { title: 'ElevenLabs', desc: '语音克隆 · 29种语言', url: '/tools/video.html#elevenlabs', icon: '🔊' },
-      { title: '网易见外', desc: '语音转文字/视频翻译/OCR · 完全免费', url: '/tools/video.html#jianwai', icon: '🌐' },
-      { title: 'Ollama', desc: '本地模型运行框架 · Llama/Hermes/DeepSeek', url: '/tools/local.html#ollama', icon: '🦙' },
-      { title: 'Hermes Agent', desc: 'NousResearch · Agent专项优化模型', url: '/tools/local.html#hermes', icon: '🐺' },
-      { title: 'OpenClaw AI Agent', desc: '多模型自托管平台 · 20+平台接入', url: '/tools/local.html#openclaw', icon: '🦀' },
-      { title: 'Dify', desc: '可视化工作流 · RAG知识库', url: '/tools/local.html#dify', icon: '⚡' },
-      { title: 'Coze扣子', desc: '字节跳动 · 零代码智能体搭建', url: '/tools/local.html#coze', icon: '🔧' },
-      { title: 'Cursor', desc: '最热门AI编程编辑器 · VS Code深度定制', url: '/tools/local.html#cursor', icon: '📝' },
-      { title: 'WorkBuddy', desc: '腾讯云AI智能开发助手 · 小程序+IDE', url: '/tools/local.html#workbuddy', icon: '🐟' },
-      { title: 'GPTs', desc: 'ChatGPT自定义AI助手 · 知识库', url: '/tools/local.html#gpts', icon: '🤖' },
-      { title: 'WPS AI', desc: '金山办公 · AI续写/润色/摘要', url: '/tools/office.html#wpsai', icon: '📝' },
-      { title: 'Gamma', desc: 'AI PPT生成 · 输入主题自动制作', url: '/tools/office.html#gamma', icon: '🎭' },
-      { title: 'Kimi PDF阅读', desc: '200万字上下文 · 深度阅读PDF', url: '/tools/office.html#kimi-pdf', icon: '🌙' },
-      { title: 'Claude PDF分析', desc: '多PDF对比 · 学术研究/合同审查', url: '/tools/office.html#claude-pdf', icon: '🦞' },
-      { title: 'Obsidian', desc: '首选推荐 · 本地Markdown笔记', url: '/tools/notes.html', icon: '⬛' },
-      { title: '学习路径', desc: '三阶段系统学习AI · 入门到深度应用', url: '/learn/index.html', icon: '📚' },
-      { title: '零基础入门', desc: '从AI是什么开始 · 5种提示词写法', url: '/learn/beginner.html', icon: '🌱' },
-      { title: '进阶提升', desc: 'Prompt Engineering · AI绘图 · AI编程', url: '/learn/intermediate.html', icon: '⚡' },
-      { title: '深度应用', desc: 'Agent搭建 · 本地部署 · 应用上架', url: '/learn/advanced.html', icon: '🚀' },
-      { title: '24周学习计划', desc: '5阶段体系化学习路线', url: '/learn/plan.html', icon: '📅' },
-      { title: '功能对比', desc: '工具横向对比 · 免费额度/中文/场景', url: '/compare/index.html', icon: '⚖️' },
+      { title: 'Claude', desc: '小龙虾 · Anthropic国际顶级AI对话助手', url: 'tools/chat.html#claude', icon: '🦞' },
+      { title: 'ChatGPT', desc: 'OpenAI · 全球最广泛使用的AI对话工具', url: 'tools/chat.html#chatgpt', icon: '🤖' },
+      { title: 'Kimi', desc: '月之暗面 · 国内直连 · 200万字长文本', url: 'tools/chat.html#kimi', icon: '🌙' },
+      { title: '豆包', desc: '字节跳动 · 多模态AI对话助手', url: 'tools/chat.html#doubao', icon: '🫘' },
+      { title: 'DeepSeek', desc: '深度求索 · 数学代码推理能力突出', url: 'tools/chat.html#deepseek', icon: '🔍' },
+      { title: '通义千问', desc: '阿里巴巴 · 企业级AI应用生态', url: 'tools/chat.html#qwen', icon: '🌿' },
+      { title: 'Midjourney', desc: '国际顶级AI绘图工具 · 艺术风格多样', url: 'tools/image.html#midjourney', icon: '🎨' },
+      { title: '即梦AI', desc: '字节跳动 · 中文提示词 · 图文视频', url: 'tools/image.html#jimeng', icon: '✨' },
+      { title: 'Stable Diffusion', desc: '开源AI绘图 · Fooocus安装 · 100集教程', url: 'tools/image.html#sd', icon: '🖼️' },
+      { title: '可灵AI', desc: '快手 · 文生视频/图生视频 · 国际一流', url: 'tools/video.html#kling', icon: '🎬' },
+      { title: 'Runway Gen-3', desc: '国际领先AI视频生成 · 影视广告', url: 'tools/video.html#runway', icon: '🎞️' },
+      { title: 'Suno', desc: '全球最热门AI音乐生成 · 支持中文', url: 'tools/video.html#suno', icon: '🎵' },
+      { title: 'Udio', desc: 'AI音乐创作 · 人声和编曲细节更优', url: 'tools/video.html#udio', icon: '🎸' },
+      { title: '剪映AI', desc: '字节跳动 · AI字幕/配音/抠图', url: 'tools/video.html#jianying', icon: '✂️' },
+      { title: '腾讯智影', desc: '数字人口播视频制作', url: 'tools/video.html#zhiying', icon: '🎥' },
+      { title: '魔音工坊', desc: '500+声音 · AI配音/有声书', url: 'tools/video.html#moyin', icon: '🎙️' },
+      { title: 'ElevenLabs', desc: '语音克隆 · 29种语言', url: 'tools/video.html#elevenlabs', icon: '🔊' },
+      { title: '网易见外', desc: '语音转文字/视频翻译/OCR · 完全免费', url: 'tools/video.html#jianwai', icon: '🌐' },
+      { title: 'Ollama', desc: '本地模型运行框架 · Llama/Hermes/DeepSeek', url: 'tools/local.html#ollama', icon: '🦙' },
+      { title: 'Hermes Agent', desc: 'NousResearch · Agent专项优化模型', url: 'tools/local.html#hermes', icon: '🐺' },
+      { title: 'OpenClaw AI Agent', desc: '多模型自托管平台 · 20+平台接入', url: 'tools/local.html#openclaw', icon: '🦀' },
+      { title: 'Dify', desc: '可视化工作流 · RAG知识库', url: 'tools/local.html#dify', icon: '⚡' },
+      { title: 'Coze扣子', desc: '字节跳动 · 零代码智能体搭建', url: 'tools/local.html#coze', icon: '🔧' },
+      { title: 'Cursor', desc: '最热门AI编程编辑器 · VS Code深度定制', url: 'tools/local.html#cursor', icon: '📝' },
+      { title: 'WorkBuddy', desc: '腾讯云AI智能开发助手 · 小程序+IDE', url: 'tools/local.html#workbuddy', icon: '🐟' },
+      { title: 'GPTs', desc: 'ChatGPT自定义AI助手 · 知识库', url: 'tools/local.html#gpts', icon: '🤖' },
+      { title: 'WPS AI', desc: '金山办公 · AI续写/润色/摘要', url: 'tools/office.html#wpsai', icon: '📝' },
+      { title: 'Gamma', desc: 'AI PPT生成 · 输入主题自动制作', url: 'tools/office.html#gamma', icon: '🎭' },
+      { title: 'Kimi PDF阅读', desc: '200万字上下文 · 深度阅读PDF', url: 'tools/office.html#kimi-pdf', icon: '🌙' },
+      { title: 'Claude PDF分析', desc: '多PDF对比 · 学术研究/合同审查', url: 'tools/office.html#claude-pdf', icon: '🦞' },
+      { title: 'Obsidian', desc: '首选推荐 · 本地Markdown笔记', url: 'tools/notes.html', icon: '⬛' },
+      { title: '学习路径', desc: '三阶段系统学习AI · 入门到深度应用', url: 'learn/index.html', icon: '📚' },
+      { title: '零基础入门', desc: '从AI是什么开始 · 5种提示词写法', url: 'learn/beginner.html', icon: '🌱' },
+      { title: '进阶提升', desc: 'Prompt Engineering · AI绘图 · AI编程', url: 'learn/intermediate.html', icon: '⚡' },
+      { title: '深度应用', desc: 'Agent搭建 · 本地部署 · 应用上架', url: 'learn/advanced.html', icon: '🚀' },
+      { title: '24周学习计划', desc: '5阶段体系化学习路线', url: 'learn/plan.html', icon: '📅' },
+      { title: '功能对比', desc: '工具横向对比 · 免费额度/中文/场景', url: 'compare/index.html', icon: '⚖️' },
     ];
 
     const searchInput = document.getElementById('search-input');
@@ -134,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchResults.innerHTML = '<div class="search-empty">没有找到相关工具，试试其他关键词</div>';
       } else {
         searchResults.innerHTML = results.map(r => `
-          <a href="${r.url}" class="search-result-item">
+          <a href="${_rootPrefix}${r.url}" class="search-result-item">
             <span class="search-result-icon">${r.icon}</span>
             <div class="search-result-text">
               <h4>${r.title}</h4>
