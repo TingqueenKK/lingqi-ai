@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>本地AI与智能体平台 — 零启AI</title>
+  <meta name="description" content="本地AI部署（Ollama / Hermes Agent）、AI Agent自托管平台（OpenClaw）、低代码工作流（Dify）、零代码智能体（Coze）完整使用指南。">
+  <meta property="og:title" content="本地AI与智能体平台 — 零启AI">
+  <meta property="og:description" content="本地AI部署（Ollama / Hermes Agent）、AI Agent自托管平台（OpenClaw）、低代码工作流（Dify）、零代码智能体（Coze）完整使用指南。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/tools/local.html">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/tools/local.html">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .sub-category {
+      margin-bottom: 64px;
+    }
+    .sub-category-header {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 18px 24px;
+      margin-bottom: 28px;
+    }
+    .sub-category-icon { font-size: 28px; }
+    .sub-category-header h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .sub-category-header p { font-size: 13px; color: var(--mid); }
+
+    .tool-detail { scroll-margin-top: 80px; margin-bottom: 56px; }
+    .tool-header {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px;
+    }
+    .tool-header-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; flex-shrink: 0;
+    }
+    .tool-header-info h2 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .tool-header-info p { font-size: 15px; color: var(--mid); margin-bottom: 12px; line-height: 1.7; }
+    .tool-header-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tool-header-links { margin-top: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .model-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px;
+      margin: 20px 0;
+    }
+    .model-card {
+      background: var(--lighter); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 16px;
+    }
+    .model-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .model-card p  { font-size: 12px; color: var(--mid); line-height: 1.5; }
+    .model-card .meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #0f172a, #1e1b4b);
+      border-radius: var(--radius-lg); padding: 28px 32px;
+      color: white; margin-bottom: 24px; position: relative; overflow: hidden;
+    }
+    .highlight-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 100% 0%, rgba(99,102,241,.3), transparent);
+      pointer-events: none;
+    }
+    .highlight-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; position: relative; z-index: 1; }
+    .highlight-box p { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.7; position: relative; z-index: 1; }
+    .highlight-box .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; position: relative; z-index: 1; }
+    .highlight-box .tag {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.85); padding: 4px 12px;
+      border-radius: 20px; font-size: 12px; font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="../learn/index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="index.html" class="active">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="chat.html">AI 对话助手</a></li>
+          <li><a href="image.html">AI 绘图工具</a></li>
+          <li><a href="video.html">AI 视频 / 音乐</a></li>
+          <li><a href="local.html">本地 AI / 智能体平台</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="../learn/advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span>
+  <a href="index.html">AI工具库</a><span>›</span>
+  <span>本地 AI / 智能体平台</span>
+</div>
+
+<section class="page-hero">
+  <h1>🤖 本地 AI / 智能体平台</h1>
+  <p>本地模型部署、自托管 AI Agent、低代码工作流与零代码智能体平台完整指南</p>
+</section>
+
+<div class="main-content">
+  <div class="content-grid">
+    <div class="content-main">
+
+      <div class="tip tip-info" style="margin-bottom:32px;">
+        <strong>本页覆盖四类工具：</strong>① 在本机运行开源模型（Ollama + Hermes 等）；② 多模型聚合 Agent 自托管平台（OpenClaw）；③ 低代码 AI 工作流与 RAG 平台（Dify、FastGPT）；④ 零代码云端智能体搭建（Coze）。不同层级对应不同技术门槛，请按需选择。
+      </div>
+
+      <!-- ===== 子类别 1：本地模型运行 ===== -->
+      <div class="sub-category">
+        <div class="sub-category-header">
+          <div class="sub-category-icon">🦙</div>
+          <div>
+            <h2>本地模型运行</h2>
+            <p>在自己的电脑或服务器上离线运行开源大模型，数据不出本机，隐私最安全</p>
+          </div>
+        </div>
+
+        <!-- Ollama -->
+        <div class="tool-detail" id="ollama">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#fef9c3;">🦙</div>
+            <div class="tool-header-info">
+              <h2>Ollama</h2>
+              <p>开源本地模型运行框架，支持一键下载并运行 Llama、Hermes、Mistral、Gemma 等数十种主流开源模型。使用简单，无需编写代码，命令行或 Web UI 均可操作。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-green">完全免费</span>
+                <span class="badge badge-gray">本地离线运行</span>
+                <span class="badge badge-purple">开源项目</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://ollama.com" target="_blank" class="btn btn-primary btn-sm">访问官网 ↗</a>
+                <a href="https://github.com/ollama/ollama" target="_blank" class="btn btn-ghost btn-sm">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:14px;">Ollama 支持的主要模型（部分）</h4>
+          <div class="model-grid">
+            <div class="model-card">
+              <h4>🐺 Hermes 系列</h4>
+              <p>NousResearch 出品，基于 Llama 架构微调，擅长角色扮演与多轮指令跟随，是 Agent 场景的热门选择。</p>
+              <div class="meta">
+                <span class="badge badge-purple">Agent 友好</span>
+                <span class="badge badge-gray">7B / 13B / 70B</span>
+              </div>
+            </div>
+            <div class="model-card">
+              <h4>🦙 Llama 系列</h4>
+              <p>Meta 出品的开源旗舰模型，Llama 3 系列在多项基准上接近 GPT-4 水平，是当前最主流的本地模型。</p>
+              <div class="meta">
+                <span class="badge badge-blue">Meta 出品</span>
+                <span class="badge badge-gray">8B / 70B</span>
+              </div>
+            </div>
+            <div class="model-card">
+              <h4>🔍 DeepSeek（本地版）</h4>
+              <p>深度求索开源版本，可通过 Ollama 在本地运行 DeepSeek-R1 蒸馏版（1.5B–32B），离线推理。</p>
+              <div class="meta">
+                <span class="badge badge-purple">推理能力强</span>
+                <span class="badge badge-gray">多档位</span>
+              </div>
+            </div>
+            <div class="model-card">
+              <h4>💎 Gemma 系列</h4>
+              <p>Google 开源的轻量级模型，2B/7B 版在消费级 GPU 和部分 CPU 上可流畅运行。</p>
+              <div class="meta">
+                <span class="badge badge-green">Google 出品</span>
+                <span class="badge badge-gray">2B / 7B</span>
+              </div>
+            </div>
+            <div class="model-card">
+              <h4>🌪️ Mistral / Mixtral</h4>
+              <p>法国 Mistral AI 出品，Mixtral 8x7B 采用 MoE 架构，在相近参数量下性能出色。</p>
+              <div class="meta">
+                <span class="badge badge-orange">欧洲开源</span>
+                <span class="badge badge-gray">7B / 8x7B</span>
+              </div>
+            </div>
+            <div class="model-card">
+              <h4>💬 Qwen（通义）本地版</h4>
+              <p>阿里开源的 Qwen 系列，中文表现优异，0.5B 到 72B 多档，适合中文本地化场景。</p>
+              <div class="meta">
+                <span class="badge badge-blue">中文优秀</span>
+                <span class="badge badge-gray">多档位</span>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin:24px 0 12px;">📦 Ollama 安装与使用（详细步骤）</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>下载安装 Ollama</h4>
+                <p>前往 <strong>ollama.com</strong>，点击「Download」按钮，下载对应系统的安装包（Windows: <code>OllamaSetup.exe</code>，约 600MB）。双击运行，按提示安装。安装完成后系统托盘会出现一个羊驼图标，表示 Ollama 已在后台运行。</p>
+                <p style="margin-top:6px;"><strong>Windows 用户注意：</strong>Ollama 安装后自动以系统服务方式运行，不需要手动启动。如果托盘没有图标，打开「开始菜单」搜索「Ollama」点击启动。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>打开终端</h4>
+                <p><strong>Windows</strong>：按 <code>Win + R</code>，输入 <code>cmd</code> 回车，打开命令提示符。或搜索「PowerShell」打开。<br>
+                <strong>验证安装</strong>：输入以下命令，如果显示版本号说明安装成功：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">ollama --version</code></p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>下载并运行你的第一个模型</h4>
+                <p>在终端中输入（推荐新手先用小模型体验）：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">ollama run qwen2.5:0.5b</code><br>
+                这个模型只有 0.5B 参数，约 400MB，几秒钟就能下载完成。下载完成后终端会显示 <code>&gt;&gt;&gt;</code> 提示符，表示可以开始对话了。<br>
+                试试输入：「你好，介绍一下你自己」，看看效果。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>试试更大的模型（如果电脑配置允许）</h4>
+                <p>退出当前对话输入 <code>/bye</code>，然后尝试更大的模型：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">ollama run qwen2.5:7b</code>（中文优秀，约 4.5GB，推荐 8GB+ 内存）<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;">ollama run deepseek-r1:7b</code>（推理强，约 4.7GB）<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;">ollama run hermes3</code>（Agent 优化，约 4.9GB）</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>管理已下载的模型</h4>
+                <p><strong>查看已安装模型</strong>：<code>ollama list</code><br>
+                <strong>删除不需要的模型</strong>：<code>ollama rm 模型名</code>（释放磁盘空间）<br>
+                <strong>查看模型信息</strong>：<code>ollama show 模型名</code></p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">6</div>
+              <div class="step-body">
+                <h4>（可选）安装 Open WebUI 图形界面</h4>
+                <p>Ollama 默认是命令行界面。如果你想要类似 ChatGPT 的网页聊天界面：<br>
+                ① 确保已安装 Docker Desktop（参考上方的 Dify 安装教程第 1 步）<br>
+                ② 在终端执行：<code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;">docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code><br>
+                ③ 打开浏览器访问 <strong>http://localhost:3000</strong>，注册账号后即可在网页中使用本地模型。</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="tip tip-warn">
+            <strong>硬件要求参考：</strong>7B 模型需要约 4–8 GB 显存或内存；13B 需要约 8–16 GB；70B 模型需要 48 GB+ 以上显存，一般消费级电脑难以运行。若电脑配置不高，建议选择 1.5B–7B 的轻量模型（如 DeepSeek-R1:1.5b 或 Gemma2:2b）。
+          </div>
+        </div>
+
+        <!-- Hermes Agent -->
+        <div class="tool-detail" id="hermes">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#2d1b69;color:#e9d5ff;">🐺</div>
+            <div class="tool-header-info">
+              <h2>Hermes Agent 模型系列</h2>
+              <p>Hermes 是由 <strong>NousResearch</strong> 开发的开源大语言模型系列，基于 Meta Llama 架构进行专项微调，在指令跟随、角色设定（System Prompt）、函数调用（Function Calling）和 Agent 任务执行方面表现突出，被广泛用于需要自定义行为的本地 AI Agent 场景。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-purple">Agent 专项优化</span>
+                <span class="badge badge-green">开源免费</span>
+                <span class="badge badge-gray">via Ollama 运行</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://huggingface.co/NousResearch" target="_blank" class="btn btn-primary btn-sm">HuggingFace ↗</a>
+                <a href="https://github.com/NousResearch" target="_blank" class="btn btn-ghost btn-sm">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:12px;">Hermes 系列版本对比</h4>
+          <div style="overflow-x:auto;margin-bottom:20px;">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>版本</th>
+                  <th>基础模型</th>
+                  <th>参数量</th>
+                  <th>核心优势</th>
+                  <th>Ollama 命令</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Hermes 3</strong></td>
+                  <td>Llama 3.1</td>
+                  <td>8B / 70B / 405B</td>
+                  <td>指令跟随、Function Calling、多步 Agent</td>
+                  <td><code>ollama run hermes3</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Hermes 2 Pro</strong></td>
+                  <td>Mistral 7B</td>
+                  <td>7B</td>
+                  <td>JSON 输出格式、工具调用稳定</td>
+                  <td><code>ollama run hermes2-pro-mistral</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Hermes 2 Theta</strong></td>
+                  <td>Llama 3</td>
+                  <td>8B / 70B</td>
+                  <td>对话流畅度与角色扮演</td>
+                  <td><code>ollama run hermes2-theta</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tip tip-info">
+            <strong>适用场景：</strong>Hermes 系列特别适合用在需要严格遵循 System Prompt 设定的场景，例如：搭建有固定人设的本地 AI 助手、在 OpenClaw 等 Agent 平台中作为后端推理模型、需要稳定输出 JSON 格式供程序解析的自动化任务。
+          </div>
+        </div>
+      </div><!-- /sub-category 1 -->
+
+      <!-- ===== 子类别 2：AI Agent 自托管平台 ===== -->
+      <div class="sub-category">
+        <div class="sub-category-header">
+          <div class="sub-category-icon">🕸️</div>
+          <div>
+            <h2>AI Agent 自托管平台</h2>
+            <p>可部署在自有服务器或本地环境的 AI Agent 框架，接入多种模型，搭建定制化智能体系统</p>
+          </div>
+        </div>
+
+        <!-- OpenClaw -->
+        <div class="tool-detail" id="openclaw">
+          <div class="highlight-box">
+            <h3>🦀 OpenClaw AI Agent</h3>
+            <p>OpenClaw 是一款面向个人和中小团队的 <strong>多模型接入 AI Agent 自托管平台</strong>，支持同时接入 20+ 外部平台（包括 Claude、ChatGPT、DeepSeek、Kimi 等主流 API）以及 6+ 本地模型（Ollama 接入），提供统一界面管理，数据存储在自有服务器，不经过第三方云端中转。</p>
+            <div class="tags">
+              <span class="tag">自托管部署</span>
+              <span class="tag">20+ 平台接入</span>
+              <span class="tag">6+ 本地模型</span>
+              <span class="tag">数据私有化</span>
+              <span class="tag">智能体编排</span>
+            </div>
+          </div>
+
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#fce7d8;">🦀</div>
+            <div class="tool-header-info">
+              <h2>OpenClaw AI Agent</h2>
+              <p>将分散的 AI 模型和平台统一管理，在私有化部署的前提下实现多模型协同、任务编排与 Agent 工作流，适合对数据隐私有较高要求、或希望统一管理多个 AI 账号的用户和团队。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-orange">自托管部署</span>
+                <span class="badge badge-purple">多模型聚合</span>
+                <span class="badge badge-blue">数据私有化</span>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:14px;">核心能力</h4>
+          <div class="model-grid">
+            <div class="model-card">
+              <h4>🔗 多平台统一接入</h4>
+              <p>一个界面同时管理 Claude、ChatGPT、DeepSeek、Kimi、豆包等 20+ 云端模型 API，无需反复切换账号。</p>
+            </div>
+            <div class="model-card">
+              <h4>🦙 本地模型集成</h4>
+              <p>通过 Ollama 接口接入本地模型（Llama、Hermes、DeepSeek 本地版等），实现离线推理，不消耗 API 额度。</p>
+            </div>
+            <div class="model-card">
+              <h4>🤖 Agent 编排</h4>
+              <p>支持自定义 AI Agent，设定 System Prompt、工具调用、多步任务流程，实现自动化工作流。</p>
+            </div>
+            <div class="model-card">
+              <h4>🔒 数据私有化</h4>
+              <p>对话记录、知识库等数据存储在自有服务器，不经过第三方平台中转，适合处理敏感信息场景。</p>
+            </div>
+          </div>
+
+          <div class="tip tip-success">
+            <strong>适合人群：</strong>有多个 AI 账号需要统一管理的重度用户；对数据隐私有要求的个人或团队；希望将 AI 能力集成进内部工作流的技术型用户。
+          </div>
+          <div class="tip tip-warn" style="margin-top:12px;">
+            <strong>部署要求：</strong>OpenClaw 属于自托管项目，部署需要具备一定的服务器运维基础（Docker 或 Node.js 环境），适合有一定技术背景或愿意学习部署流程的用户。
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin:20px 0 12px;">📦 OpenClaw 本地部署步骤</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>准备环境</h4>
+                <p>确保已安装 <strong>Node.js 18+</strong>（访问 nodejs.org 下载 LTS 版本）和 <strong>Git</strong>（访问 git-scm.com 下载）。打开终端验证：<code>node -v</code> 显示 v18+，<code>git -v</code> 显示版本号。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>获取 OpenClaw 代码</h4>
+                <p>从 OpenClaw 官方仓库克隆代码（或下载 ZIP 解压）：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">git clone https://github.com/你的仓库/openclaw.git<br>cd openclaw</code></p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>安装依赖并启动</h4>
+                <p>执行以下命令安装项目依赖并启动服务：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">npm install<br>npm run dev</code><br>
+                启动成功后，终端会显示访问地址，通常为 <strong>http://localhost:3000</strong>。在浏览器中打开即可进入 OpenClaw 管理界面。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>配置模型接入</h4>
+                <p>在 OpenClaw 设置页面中，添加你要使用的 AI 服务：<br>
+                ① 填入 Claude API Key（从 anthropic.com 获取）<br>
+                ② 填入 OpenAI API Key（可选，从 platform.openai.com 获取）<br>
+                ③ 配置 Ollama 本地模型地址（默认 <code>http://localhost:11434</code>）<br>
+                配置完成后即可在统一界面中使用所有接入的模型。</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dify -->
+        <div class="tool-detail" id="dify">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#f0fdf4;">⚡</div>
+            <div class="tool-header-info">
+              <h2>Dify</h2>
+              <p>由 LangGenius 开发的开源 AI 应用开发平台，支持本地自部署（Docker）或云端托管，提供可视化工作流编排、RAG 知识库管理、Agent 配置等功能。在国内开源社区有很高的使用率。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-green">开源免费</span>
+                <span class="badge badge-purple">可视化工作流</span>
+                <span class="badge badge-blue">RAG 知识库</span>
+                <span class="badge badge-gray">需自行部署</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://dify.ai" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+                <a href="https://github.com/langgenius/dify" target="_blank" class="btn btn-ghost btn-sm">GitHub ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:12px;">主要功能</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>可视化 Workflow 编排</strong>：拖拽节点构建多步 AI 处理流程，无需写代码。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>RAG 知识库</strong>：将企业文档、PDF 等资料接入 AI，让模型「读懂」自有数据后再回答。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>多模型切换</strong>：同一工作流可自由切换使用 OpenAI、Anthropic、国产大模型或 Ollama 本地模型。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>Agent 模式</strong>：内置 ReAct、Function Calling 等 Agent 执行框架，可接入网络搜索、代码解释器等工具。</div></li>
+          </ul>
+          <div class="tip tip-info">
+            <strong>Dify vs OpenClaw：</strong>Dify 更专注于「构建 AI 应用」（知识库问答、工作流自动化），适合有应用开发需求的场景；OpenClaw 更专注于「统一管理多个 AI 账号和模型」，适合多平台重度使用者。两者可以结合使用。
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin:20px 0 12px;">📦 Dify 安装部署教程（Windows Docker 方式）</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>安装 Docker Desktop</h4>
+                <p>访问 <strong>docker.com/products/docker-desktop</strong>，下载 Windows 版并安装。安装完成后重启电脑，打开 Docker Desktop 确认左下角显示「Engine running」。</p>
+                <p style="margin-top:6px;"><strong>⚠️ 前提要求：</strong>Windows 10/11 64位，需在 BIOS 中启用虚拟化（Virtualization）。如果没有启用，Docker 启动时会报错提示。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>下载 Dify 源码</h4>
+                <p>打开终端（PowerShell），执行以下命令克隆 Dify 代码：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">git clone https://github.com/langgenius/dify.git<br>cd dify/docker</code></p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>启动 Dify</h4>
+                <p>在 docker 目录下执行：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">docker compose up -d</code><br>
+                首次运行会自动下载所有需要的镜像，大约需要 5-15 分钟（取决于网速）。完成后终端显示所有容器状态为「Up」。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>初始化管理员账号</h4>
+                <p>打开浏览器，访问 <strong>http://localhost/install</strong>，按照向导设置管理员邮箱、用户名和密码。完成后自动跳转到 Dify 主界面。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>创建第一个应用</h4>
+                <p>点击「创建应用」→ 选择「聊天助手」→ 输入名称 → 在模型提供商中添加 OpenAI/DeepSeek 等 API Key（或在设置中接入 Ollama 本地模型）→ 开始对话测试。</p>
+              </div>
+            </li>
+          </ul>
+          <div class="tip tip-warn">
+            <strong>硬件要求：</strong>推荐至少 4GB 内存。如果你的电脑配置较低，也可以直接使用 Dify 云服务版（<strong>dify.ai</strong>），免费版提供基础功能，无需本地部署。
+          </div>
+        </div>
+      </div><!-- /sub-category 2 -->
+
+      <!-- ===== 子类别 3：零代码智能体平台 ===== -->
+      <div class="sub-category">
+        <div class="sub-category-header">
+          <div class="sub-category-icon">🔧</div>
+          <div>
+            <h2>零代码智能体平台（云端）</h2>
+            <p>无需部署服务器，在浏览器中直接搭建自定义 AI 智能体，适合技术门槛低的用户快速实现想法</p>
+          </div>
+        </div>
+
+        <!-- Coze -->
+        <div class="tool-detail" id="coze">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#f0f9ff;">🔧</div>
+            <div class="tool-header-info">
+              <h2>Coze（扣子）</h2>
+              <p>由字节跳动推出的零代码 AI 智能体搭建平台（国内版为「扣子」coze.cn，国际版为 coze.com）。无需任何编程基础，通过可视化配置即可搭建有特定功能的 AI 助手，并发布到微信、飞书等平台。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-blue">国内直连</span>
+                <span class="badge badge-green">免费可用</span>
+                <span class="badge badge-purple">零代码搭建</span>
+                <span class="badge badge-orange">字节跳动出品</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://www.coze.cn" target="_blank" class="btn btn-primary btn-sm">扣子（国内版）↗</a>
+                <a href="https://www.coze.com" target="_blank" class="btn btn-ghost btn-sm">Coze（国际版）↗</a>
+              </div>
+            </div>
+          </div>
+
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:12px;">Coze 能做什么？</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>搭建自定义 AI 助手</strong>：设定角色、知识库、技能插件，做出有特定功能的专属 AI。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>接入多款模型</strong>：国内版可选豆包、通义、DeepSeek；国际版支持 GPT-4、Claude 等国际模型（需相应 API Key）。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>发布到多平台</strong>：搭建好的 Bot 可一键发布到微信客服、飞书、微信小程序、网页等渠道。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>工作流与自动化</strong>：通过 Workflow 功能，配置多步骤的 AI 处理流程，例如：搜索 → 总结 → 生成报告。</div></li>
+          </ul>
+
+          <h4 style="font-size:15px;font-weight:700;margin:20px 0 12px;">🚀 从零搭建你的第一个 Bot（详细步骤）</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>注册账号</h4>
+                <p>访问 <strong>coze.cn</strong>（国内版），用手机号或抖音/头条账号直接登录。国际版访问 coze.com，用 Google 账号登录。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>创建 Bot</h4>
+                <p>登录后点击左侧「工作空间」→「创建智能体」，输入名称（如「我的学习助手」）和功能描述（如「帮我解答编程问题和学习规划」），点击确认。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>编写人设与回复逻辑</h4>
+                <p>在「人设与回复逻辑」区域输入 System Prompt，例如：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;display:block;margin:6px 0;">你是一位耐心的编程学习助手。用通俗易懂的语言解答编程问题，每次回答后附上一个相关的练习题帮助巩固。</code></p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>（可选）添加知识库</h4>
+                <p>如果你希望 Bot 基于特定资料回答问题，点击「知识库」→「添加知识库」→ 上传 PDF/Word 文档或输入网页链接。例如上传你的课程笔记，Bot 就能基于笔记内容回答问题。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>测试对话</h4>
+                <p>在右侧预览区域直接输入问题测试效果。例如输入「Python 怎么读取 CSV 文件？」，观察 Bot 的回答质量，不断调整 System Prompt 直到满意。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">6</div>
+              <div class="step-body">
+                <h4>发布 Bot</h4>
+                <p>点击右上角「发布」，选择发布渠道。国内版支持：微信客服、微信公众号、飞书、网页。发布后用户即可直接与你的 Bot 对话。</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="tip tip-info">
+            <strong>注意：</strong>Coze 的数据存储在字节跳动云端服务器，不适合处理高度敏感的私人数据。如有数据私有化需求，建议考虑 OpenClaw 或 Dify 自部署方案。
+          </div>
+        </div>
+
+      </div><!-- /sub-category 3 -->
+
+      <!-- ===== 子类别 4：AI 编程开发 ===== -->
+      <div class="sub-category">
+        <div class="sub-category-header">
+          <div class="sub-category-icon">💻</div>
+          <div>
+            <h2>AI 编程开发助手</h2>
+            <p>AI 辅助编写代码、构建应用、调试排错，大幅提升开发效率，即使编程基础薄弱也能做出成品</p>
+          </div>
+        </div>
+
+        <!-- Cursor -->
+        <div class="tool-detail" id="cursor">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#fef3c7;">📝</div>
+            <div class="tool-header-info">
+              <h2>Cursor</h2>
+              <p>基于 VS Code 深度定制的 AI 编程编辑器，内嵌 AI 对话和代码生成能力。支持 Claude、GPT-4o、DeepSeek 等多种模型，可以直接在编辑器中和 AI 对话来生成、修改、解释代码，是目前最流行的 AI 编程工具。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-orange">最热门 AI IDE</span>
+                <span class="badge badge-green">免费基础版</span>
+                <span class="badge badge-blue">多模型支持</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://cursor.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              </div>
+            </div>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:14px;">📦 安装配置 Cursor（详细步骤）</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>下载 Cursor</h4>
+                <p>打开 <strong>cursor.com</strong>，点击「Download for Windows」（Windows 用户）或对应系统按钮。下载的是 <code>.exe</code> 安装包（约 150MB）。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>安装</h4>
+                <p>双击下载的 <code>Cursor-Setup.exe</code>，按提示一路「Next」即可完成安装。默认安装路径为 <code>C:\Users\你的用户名\AppData\Local\Programs\cursor</code>。安装完成后桌面会出现 Cursor 图标。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>登录账号</h4>
+                <p>首次打开 Cursor 会要求登录。可以用 <strong>Google 账号</strong>或 <strong>GitHub 账号</strong>一键登录。免费版每月有 2000 次高级模型请求额度，日常使用足够。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">4</div>
+              <div class="step-body">
+                <h4>选择 AI 模型</h4>
+                <p>登录后在设置中选择默认模型：<strong>推荐 Claude 3.7 Sonnet</strong>（代码能力强），备选 GPT-4o。路径：<code>Settings → Models → 选择 Claude 3.7 Sonnet</code>。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">5</div>
+              <div class="step-body">
+                <h4>第一次使用：让 AI 帮你写一个网页</h4>
+                <p>按 <code>Ctrl+N</code> 新建文件，按 <code>Ctrl+J</code> 打开 AI 对话面板，输入：<br>
+                <code style="background:var(--light);padding:4px 8px;border-radius:4px;font-size:13px;">帮我创建一个个人主页 HTML 文件，包含名字、简介和联系方式</code><br>
+                Cursor 会自动生成代码。点击「Accept」接受，然后按 <code>Ctrl+S</code> 保存为 <code>index.html</code>，双击即可在浏览器中预览。</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="tip tip-success">
+            <strong>新手推荐：</strong>Cursor 是目前对编程新手最友好的 AI 编程工具。界面和 VS Code 几乎一致，有大量中文教程。用自然语言描述你想做的功能，AI 会帮你写代码。
+          </div>
+          <div class="tip tip-info">
+            <strong>快捷键速记：</strong><code>Ctrl+K</code> 选中代码后用自然语言修改；<code>Ctrl+L</code> 打开侧边 AI 对话；<code>Ctrl+I</code> 打开 Composer 多文件编辑；<code>Tab</code> 接受 AI 建议。
+          </div>
+        </div>
+
+        <!-- WorkBuddy -->
+        <div class="tool-detail" id="workbuddy">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#dbeafe;">🐟</div>
+            <div class="tool-header-info">
+              <h2>WorkBuddy</h2>
+              <p>腾讯云推出的 AI 智能开发助手，支持自然语言对话生成代码、文件操作、项目搭建等功能。通过微信小程序和 IDE 插件双端使用，适合不同开发场景。内置多种领域专家技能包，可扩展安装。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-blue">腾讯云出品</span>
+                <span class="badge badge-green">免费可用</span>
+                <span class="badge badge-purple">小程序+IDE</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://www.codebuddy.cn" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              </div>
+            </div>
+          </div>
+          <p style="font-size:14px;color:var(--mid);">WorkBuddy 的特色在于可以通过微信小程序在手机上直接下达开发任务，电脑端 IDE 自动执行。适合需要在移动端远程管理项目、或希望通过对话式交互完成开发工作的用户。支持 Python、Node.js、HTML/CSS/JS 等多种语言。</p>
+        </div>
+
+        <!-- GPTs -->
+        <div class="tool-detail" id="gpts">
+          <div class="tool-header">
+            <div class="tool-header-icon" style="background:#d1fae5;">🤖</div>
+            <div class="tool-header-info">
+              <h2>ChatGPT GPTs</h2>
+              <p>OpenAI 推出的自定义 AI 助手功能，无需编程即可创建有特定能力和知识的专属 AI 助手。用户可以自定义 System Prompt、上传知识文件、配置外部 API 调用，然后在 ChatGPT 中直接使用。</p>
+              <div class="tool-header-meta">
+                <span class="badge badge-gray">需 ChatGPT 账号</span>
+                <span class="badge badge-purple">零代码自定义</span>
+                <span class="badge badge-orange">OpenAI 出品</span>
+              </div>
+              <div class="tool-header-links">
+                <a href="https://chatgpt.com/gpts" target="_blank" class="btn btn-primary btn-sm">GPTs 商店 ↗</a>
+              </div>
+            </div>
+          </div>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:12px;">GPTs 能做什么？</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>定制化 AI 助手</strong>：设定角色和指令，让 ChatGPT 按特定风格和规则回答。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>知识库</strong>：上传文档，GPT 基于你的资料回答问题（类似轻量版 RAG）。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>外部 API 调用</strong>：配置 Actions，让 GPT 调用外部服务（如查询天气、搜索数据库）。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>GPTs 商店</strong>：浏览和使用全球用户创建的数百万个 GPTs，找到现成的解决方案。</div></li>
+          </ul>
+          <div class="tip tip-info">
+            <strong>GPTs vs Coze：</strong>GPTs 基于 ChatGPT 生态，国际功能更丰富，但需访问 ChatGPT；Coze 由字节跳动出品，国内直连，更方便接入国内平台（微信、飞书等）。两者定位类似，按网络条件选择。
+          </div>
+        </div>
+
+      </div><!-- /sub-category 4 -->
+
+    </div><!-- .content-main -->
+
+    <!-- 侧边栏 -->
+    <aside class="content-sidebar">
+      <div class="sidebar-box">
+        <h3>🧭 本页工具快速跳转</h3>
+        <ul class="sidebar-nav">
+          <li><a href="#ollama">🦙 Ollama（本地模型运行）</a></li>
+          <li><a href="#hermes">🐺 Hermes Agent 模型系列</a></li>
+          <li><a href="#openclaw">🦀 OpenClaw AI Agent</a></li>
+          <li><a href="#dify">⚡ Dify（工作流平台）</a></li>
+          <li><a href="#fastgpt">📦 FastGPT（知识库问答）</a></li>
+          <li><a href="#coze">🔧 Coze / 扣子</a></li>
+          <li style="font-size:12px;color:var(--mid);padding:6px 10px;margin-top:8px;">— AI 编程开发 —</li>
+          <li><a href="#cursor">📝 Cursor（AI 编辑器）</a></li>
+          <li><a href="#workbuddy">🐟 WorkBuddy（AI 开发助手）</a></li>
+          <li><a href="#gpts">🤖 ChatGPT GPTs</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>⚖️ 怎么选？</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;">
+          <li>
+            <strong>不想花钱，本地跑模型</strong><br>
+            <span style="color:var(--mid);">→ Ollama + Hermes 3 / Llama 3</span>
+          </li>
+          <li>
+            <strong>管理多个 AI 账号</strong><br>
+            <span style="color:var(--mid);">→ OpenClaw AI Agent（自托管）</span>
+          </li>
+          <li>
+            <strong>搭建知识库问答系统</strong><br>
+            <span style="color:var(--mid);">→ Dify（自部署）</span>
+          </li>
+          <li>
+            <strong>零代码快速出成品</strong><br>
+            <span style="color:var(--mid);">→ Coze / 扣子</span>
+          </li>
+          <li>
+            <strong>AI辅助编程开发</strong><br>
+            <span style="color:var(--mid);">→ Cursor（最热门 AI IDE）</span>
+          </li>
+          <li>
+            <strong>手机端远程开发</strong><br>
+            <span style="color:var(--mid);">→ WorkBuddy（微信小程序操控）</span>
+          </li>
+          <li>
+            <strong>自定义ChatGPT助手</strong><br>
+            <span style="color:var(--mid);">→ GPTs（零代码，知识库）</span>
+          </li>
+          <li>
+            <strong>数据不上云</strong><br>
+            <span style="color:var(--mid);">→ Ollama（完全离线）或 OpenClaw / Dify（自托管）</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>🔗 相关页面</h3>
+        <ul class="sidebar-nav">
+          <li><a href="../compare/index.html#agent">智能体平台横向对比</a></li>
+          <li><a href="../learn/advanced.html">深度应用与自动化</a></li>
+          <li><a href="chat.html">AI 对话助手详解</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div><!-- .content-grid -->
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col">
+        <h4>学习路径</h4>
+        <a href="../learn/beginner.html">零基础入门</a>
+        <a href="../learn/intermediate.html">进阶提升</a>
+        <a href="../learn/advanced.html">深度应用</a>
+      </div>
+      <div class="footer-col">
+        <h4>AI 工具库</h4>
+        <a href="chat.html">AI 对话助手</a>
+        <a href="image.html">AI 绘图工具</a>
+        <a href="video.html">AI 视频 / 音乐</a>
+        <a href="local.html">本地 AI / 智能体</a>
+      </div>
+      <div class="footer-col">
+        <h4>更多</h4>
+        <a href="../compare/index.html">功能对比</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

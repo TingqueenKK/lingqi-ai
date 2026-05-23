@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI工具库 — 零启AI</title>
+  <meta name="description" content="收录60+主流AI工具，按类别分类整理，每款工具含使用指南和功能说明。">
+  <meta property="og:title" content="AI工具库 — 零启AI">
+  <meta property="og:description" content="收录60+主流AI工具，按类别分类整理，每款工具含使用指南和功能说明。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/tools/">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/tools/">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .category-tabs {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .cat-tab {
+      padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600;
+      cursor: pointer; border: 1.5px solid var(--border); background: var(--white);
+      transition: all .2s; color: var(--mid);
+    }
+    .cat-tab.active, .cat-tab:hover {
+      background: var(--primary); color: white; border-color: var(--primary);
+    }
+    .category-section { margin-bottom: 56px; }
+    .category-section h2 {
+      font-size: 22px; font-weight: 700; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .category-section .cat-desc { font-size: 14px; color: var(--mid); margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="../learn/index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="index.html" class="active">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="chat.html">AI 对话助手</a></li>
+          <li><a href="image.html">AI 绘图工具</a></li>
+          <li><a href="video.html">AI 视频 / 音乐</a></li>
+          <li><a href="local.html">本地 AI / 智能体</a></li>
+          <li><a href="office.html">AI 办公自动化</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="../learn/advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span><span>AI工具库</span>
+</div>
+
+<section class="page-hero">
+  <h1>🛠️ AI 工具库</h1>
+  <p>收录国内外 60+ 主流 AI 工具，按类别整理，每款工具均有完整使用指南</p>
+</section>
+
+<div class="main-content">
+
+  <!-- 分类导航 -->
+  <div class="category-tabs">
+    <span class="cat-tab active">全部工具</span>
+    <span class="cat-tab">💬 AI 对话助手</span>
+    <span class="cat-tab">🎨 AI 绘图</span>
+    <span class="cat-tab">🎬 AI 视频 / 音乐</span>
+    <span class="cat-tab">🤖 本地 AI / 智能体</span>
+    <span class="cat-tab">💻 AI 编程开发</span>
+    <span class="cat-tab">📄 AI 办公自动化</span>
+  </div>
+
+  <!-- 类别：AI 对话助手 -->
+  <div class="category-section">
+    <h2>💬 AI 对话助手</h2>
+    <p class="cat-desc">通过自然语言对话完成写作、问答、分析、翻译等任务的 AI 工具。这是最常用的 AI 入口。</p>
+    <div class="tool-grid">
+      <a href="chat.html#claude" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fce7d8;">🦞</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Claude</div>
+            <div style="font-size:12px;color:var(--mid);">Anthropic · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">国际顶级</span>
+          <span class="badge badge-gray">需访问国际版</span>
+        </div>
+        <div class="tool-card-desc">长文本处理、代码编写和深度分析能力突出，被称为"小龙虾"。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="chat.html#chatgpt" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#d1fae5;">🤖</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">ChatGPT</div>
+            <div style="font-size:12px;color:var(--mid);">OpenAI · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-green">最广泛使用</span>
+          <span class="badge badge-gray">需访问国际版</span>
+        </div>
+        <div class="tool-card-desc">全球用户最多的 AI 对话工具，综合能力强，插件生态丰富。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="chat.html#kimi" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#dbeafe;">🌙</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Kimi</div>
+            <div style="font-size:12px;color:var(--mid);">月之暗面 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费可用</span>
+        </div>
+        <div class="tool-card-desc">超长上下文（支持 200 万字），擅长文档阅读、学术研究辅助。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="chat.html#doubao" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fef9c3;">🫘</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">豆包</div>
+            <div style="font-size:12px;color:var(--mid);">字节跳动 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费可用</span>
+        </div>
+        <div class="tool-card-desc">字节跳动出品，多模态支持好，有 AI 语音通话、图片生成等功能。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="chat.html#deepseek" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#ede9fe;">🔍</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">DeepSeek</div>
+            <div style="font-size:12px;color:var(--mid);">深度求索 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-purple">推理能力强</span>
+        </div>
+        <div class="tool-card-desc">数学、代码、逻辑推理能力突出，DeepSeek-R1 系列受到全球关注。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="chat.html#qwen" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#dcfce7;">🌿</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">通义千问</div>
+            <div style="font-size:12px;color:var(--mid);">阿里巴巴 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费可用</span>
+        </div>
+        <div class="tool-card-desc">阿里云出品，企业级应用生态完善，支持长文本和多模态输入。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+    </div>
+    <div style="text-align:right;margin-top:16px;">
+      <a href="chat.html" class="btn btn-outline btn-sm">查看全部对话工具 →</a>
+    </div>
+  </div>
+
+  <!-- 类别：AI 绘图 -->
+  <div class="category-section">
+    <h2>🎨 AI 绘图工具</h2>
+    <p class="cat-desc">通过文字描述或参考图片生成高质量图像的工具。从商业插画到个人创作均可使用。</p>
+    <div class="tool-grid">
+      <a href="image.html#midjourney" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#1e293b;color:#fff;">MJ</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Midjourney</div>
+            <div style="font-size:12px;color:var(--mid);">Midjourney Inc. · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">国际顶级</span>
+          <span class="badge badge-gray">订阅制</span>
+        </div>
+        <div class="tool-card-desc">公认图像质量最高的 AI 绘图工具，艺术风格多样，商业使用授权清晰。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="image.html#jimeng" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fce7f3;">✨</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">即梦 AI</div>
+            <div style="font-size:12px;color:var(--mid);">字节跳动 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费额度</span>
+        </div>
+        <div class="tool-card-desc">字节跳动旗下，支持中文提示词，图片与视频生成均支持，上手门槛低。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="image.html#tongyi" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#ecfdf5;">🖼️</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">通义万象</div>
+            <div style="font-size:12px;color:var(--mid);">阿里巴巴 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费可用</span>
+        </div>
+        <div class="tool-card-desc">阿里巴巴旗下图像生成工具，中文提示词支持完善，写实风格表现良好。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+    </div>
+    <div style="text-align:right;margin-top:16px;">
+      <a href="image.html" class="btn btn-outline btn-sm">查看全部绘图工具 →</a>
+    </div>
+  </div>
+
+  <!-- 类别：视频音乐 -->
+  <div class="category-section">
+    <h2>🎬 AI 视频 / 音乐工具</h2>
+    <p class="cat-desc">通过 AI 生成或编辑视频、音乐的工具，正在改变内容创作的方式。</p>
+    <div class="tool-grid">
+      <a href="video.html#kling" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fef3c7;">🎬</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">可灵 AI</div>
+            <div style="font-size:12px;color:var(--mid);">快手 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费额度</span>
+        </div>
+        <div class="tool-card-desc">快手推出，文生视频 / 图生视频，生成质量达到国际一流水平。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="video.html#suno" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#ede9fe;">🎵</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Suno</div>
+            <div style="font-size:12px;color:var(--mid);">Suno AI · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">国际顶级</span>
+          <span class="badge badge-gray">需访问国际版</span>
+        </div>
+        <div class="tool-card-desc">全球最热门的 AI 音乐生成工具，输入歌词或风格描述即可生成完整歌曲。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="video.html#udio" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#dbeafe;">🎸</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Udio</div>
+            <div style="font-size:12px;color:var(--mid);">Udio · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">国际工具</span>
+          <span class="badge badge-green">免费额度</span>
+        </div>
+        <div class="tool-card-desc">Suno 的主要竞争对手，音乐风格细节控制更精细，适合进阶创作。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+    </div>
+    <div style="text-align:right;margin-top:16px;">
+      <a href="video.html" class="btn btn-outline btn-sm">查看全部视频音乐工具 →</a>
+    </div>
+  </div>
+
+  <!-- 类别：本地AI/智能体 -->
+  <div class="category-section">
+    <h2>🤖 本地 AI / 智能体平台</h2>
+    <p class="cat-desc">涵盖三个层次：① 本地离线运行开源模型（Ollama + Hermes 等）；② 自托管多模型 Agent 平台（OpenClaw）；③ 零代码云端智能体搭建（Coze）。按数据隐私需求和技术门槛选择合适工具。</p>
+    <div class="tool-grid">
+      <a href="local.html#ollama" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fef9c3;">🦙</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Ollama</div>
+            <div style="font-size:12px;color:var(--mid);">开源项目 · 本地运行</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-green">完全免费</span>
+          <span class="badge badge-gray">本地离线</span>
+        </div>
+        <div class="tool-card-desc">一键在本地电脑运行开源模型（Llama 3、Hermes、DeepSeek 本地版等），数据完全不出本机。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="local.html#hermes" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#2d1b69;color:#e9d5ff;">🐺</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Hermes Agent 系列</div>
+            <div style="font-size:12px;color:var(--mid);">NousResearch · 开源</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-purple">Agent 专项优化</span>
+          <span class="badge badge-green">开源免费</span>
+        </div>
+        <div class="tool-card-desc">NousResearch 基于 Llama 微调的 Agent 专项模型，指令跟随和函数调用能力出色，via Ollama 运行。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="local.html#openclaw" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#fce7d8;">🦀</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">OpenClaw AI Agent</div>
+            <div style="font-size:12px;color:var(--mid);">自托管部署 · 多模型</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">自托管</span>
+          <span class="badge badge-purple">20+ 平台接入</span>
+          <span class="badge badge-blue">数据私有化</span>
+        </div>
+        <div class="tool-card-desc">自托管多模型 AI Agent 平台，同时接入 20+ 外部平台和 6+ 本地模型，数据存储在自有服务器。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="local.html#dify" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#f0fdf4;">⚡</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Dify</div>
+            <div style="font-size:12px;color:var(--mid);">LangGenius · 开源</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-green">开源免费</span>
+          <span class="badge badge-purple">RAG + 工作流</span>
+        </div>
+        <div class="tool-card-desc">开源 AI 应用开发平台，可视化工作流、RAG 知识库和 Agent 编排，支持自部署。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="local.html#coze" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#f0f9ff;">🔧</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Coze（扣子）</div>
+            <div style="font-size:12px;color:var(--mid);">字节跳动 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">零代码搭建</span>
+        </div>
+        <div class="tool-card-desc">无需编程即可搭建并发布 AI 智能体，支持接入多款大模型，可发布至微信、飞书等渠道。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+    </div>
+    <div style="text-align:right;margin-top:16px;">
+      <a href="local.html" class="btn btn-outline btn-sm">查看全部本地AI / 智能体工具 →</a>
+    </div>
+  </div>
+
+  <!-- 类别：办公自动化 -->
+  <div class="category-section">
+    <h2>📄 AI 办公自动化</h2>
+    <p class="cat-desc">AI 辅助文档写作、数据分析、PPT制作、PDF处理，让日常办公效率翻倍。</p>
+    <div class="tool-grid">
+      <a href="office.html#wpsai" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#dbeafe;">📝</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">WPS AI</div>
+            <div style="font-size:12px;color:var(--mid);">金山办公 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">基础免费</span>
+        </div>
+        <div class="tool-card-desc">深度集成 WPS Office，AI 续写、润色、摘要、生成文档模板。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="office.html#gamma" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#ede9fe;">🎭</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Gamma</div>
+            <div style="font-size:12px;color:var(--mid);">Gamma · 美国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-orange">全球最热门</span>
+          <span class="badge badge-green">免费额度</span>
+        </div>
+        <div class="tool-card-desc">输入主题自动生成精美 PPT，被誉为 AI 时代的 PowerPoint 替代品。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+      <a href="office.html#kimi-pdf" class="tool-card">
+        <div class="tool-card-header">
+          <div class="tool-icon" style="background:#dbeafe;">🌙</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;">Kimi PDF 阅读</div>
+            <div style="font-size:12px;color:var(--mid);">月之暗面 · 中国</div>
+          </div>
+        </div>
+        <div class="tool-card-meta">
+          <span class="badge badge-blue">国内直连</span>
+          <span class="badge badge-green">免费可用</span>
+        </div>
+        <div class="tool-card-desc">200万字超长上下文，上传 PDF 后可深度阅读、提问、总结、翻译。</div>
+        <div class="tool-card-link">查看完整指南 →</div>
+      </a>
+    </div>
+    <div style="text-align:right;margin-top:16px;">
+      <a href="office.html" class="btn btn-outline btn-sm">查看全部办公自动化工具 →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="../learn/beginner.html">零基础入门</a><a href="../learn/intermediate.html">进阶提升</a><a href="../learn/advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="chat.html">AI 对话助手</a><a href="image.html">AI 绘图工具</a><a href="video.html">AI 视频 / 音乐</a><a href="local.html">本地 AI / 智能体</a><a href="office.html">AI 办公自动化</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a><a href="../learn/advanced.html">应用发布指南</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

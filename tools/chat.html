@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI对话助手详解 — 零启AI</title>
+  <meta name="description" content="Claude、ChatGPT、Kimi、豆包、DeepSeek等AI对话工具完整使用指南，含访问方法、注册步骤和进阶技巧。">
+  <meta property="og:title" content="AI对话助手详解 — 零启AI">
+  <meta property="og:description" content="Claude、ChatGPT、Kimi、豆包、DeepSeek等AI对话工具完整使用指南，含访问方法、注册步骤和进阶技巧。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/tools/chat.html">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/tools/chat.html">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .tool-detail { scroll-margin-top: 80px; margin-bottom: 64px; }
+    .tool-header {
+      display: flex; align-items: flex-start; gap: 20px;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px; margin-bottom: 24px;
+    }
+    .tool-header-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px; flex-shrink: 0;
+    }
+    .tool-header-info h2 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .tool-header-info p { font-size: 15px; color: var(--mid); margin-bottom: 12px; }
+    .tool-header-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tool-header-links { margin-top: 14px; display: flex; gap: 10px; }
+
+    .tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 24px; gap: 4px; }
+    .tab-btn {
+      padding: 10px 20px; border: none; background: none; cursor: pointer;
+      font-size: 14px; font-weight: 600; color: var(--mid);
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: all .2s; font-family: var(--font);
+    }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .tab-btn:hover { color: var(--primary); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .access-option {
+      background: var(--lighter); border: 1.5px solid var(--border);
+      border-radius: var(--radius); padding: 20px; margin-bottom: 14px;
+    }
+    .access-option h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .access-option p { font-size: 14px; color: var(--mid); }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="../learn/index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="index.html" class="active">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="chat.html">AI 对话助手</a></li>
+          <li><a href="image.html">AI 绘图工具</a></li>
+          <li><a href="video.html">AI 视频 / 音乐</a></li>
+          <li><a href="local.html">本地 AI / 智能体</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="../learn/advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span>
+  <a href="index.html">AI工具库</a><span>›</span>
+  <span>AI 对话助手</span>
+</div>
+
+<section class="page-hero">
+  <h1>💬 AI 对话助手</h1>
+  <p>国内外主流对话 AI 完整指南，含访问方式、注册步骤、上手教程与进阶技巧</p>
+</section>
+
+<div class="main-content">
+  <div class="content-grid">
+    <div class="content-main">
+
+      <!-- =========== Claude =========== -->
+      <div class="tool-detail" id="claude">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#fce7d8;">🦞</div>
+          <div class="tool-header-info">
+            <h2>Claude（小龙虾）</h2>
+            <p>由美国 Anthropic 公司开发，以长文本理解、代码能力和指令精准执行著称。用户亲切地称其为「小龙虾」，来源于 Anthropic 品牌的橙红配色。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-orange">国际顶级</span>
+              <span class="badge badge-purple">长文本强</span>
+              <span class="badge badge-blue">代码出色</span>
+              <span class="badge badge-gray">需国际访问</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://claude.ai" target="_blank" class="btn btn-primary btn-sm">访问官网 ↗</a>
+              <a href="../compare/index.html#chat" class="btn btn-ghost btn-sm">与其他工具对比</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'claude-what')">是什么</button>
+          <button class="tab-btn" onclick="switchTab(this,'claude-access')">如何访问</button>
+          <button class="tab-btn" onclick="switchTab(this,'claude-start')">快速上手</button>
+          <button class="tab-btn" onclick="switchTab(this,'claude-pro')">进阶技巧</button>
+        </div>
+
+        <div id="claude-what" class="tab-panel active">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">Claude 是什么？</h3>
+          <p style="margin-bottom:16px;font-size:15px;color:var(--dark-3);">Claude 是 Anthropic 公司开发的大型语言模型系列，当前最新版本为 Claude 3.7 Sonnet（2025年发布）。Anthropic 由前 OpenAI 核心成员创立，专注于 AI 安全性研究。</p>
+          <p style="margin-bottom:16px;font-size:15px;color:var(--dark-3);">Claude 系列模型分为多个档位：<strong>Haiku</strong>（速度快、成本低）、<strong>Sonnet</strong>（性能与速度平衡，最常用）、<strong>Opus</strong>（能力最强）。</p>
+          <h4 style="font-size:15px;font-weight:700;margin:20px 0 10px;">Claude 的核心优势</h4>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>超长上下文窗口</strong>：Claude 3.7 支持最高 20 万个 token 的上下文，可一次性处理整本书的内容。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>代码与技术能力</strong>：在 SWE-bench 等代码基准测试上持续位居前列，能独立完成复杂编程任务。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>指令遵循精准</strong>：格式要求、角色扮演、多步任务执行能力强，不容易「跑偏」。</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>中英文均衡</strong>：虽然以英文为主要训练语言，但中文理解和生成质量同样出色。</div></li>
+          </ul>
+          <div class="tip tip-info">
+            <strong>定位参考：</strong>如果你需要处理长文档、撰写高质量长文、进行复杂代码任务，Claude 是优先选择。日常问答、短文本场景，国内工具（Kimi、豆包等）更方便且无需额外访问步骤。
+          </div>
+        </div>
+
+        <div id="claude-access" class="tab-panel">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">如何访问 Claude？</h3>
+          <div class="access-option">
+            <h4>🌐 方式一：直接访问官方网站（推荐）</h4>
+            <p>访问 <strong>claude.ai</strong>，注册账号后即可使用。免费版有每日使用额度限制，付费版（Claude Pro，约 $20/月）无限制使用 Sonnet 模型，并优先访问 Opus。</p>
+          </div>
+          <div class="access-option">
+            <h4>📱 方式二：官方移动应用</h4>
+            <p>Anthropic 提供 iOS 和 Android 官方 App。iOS 用户可在 App Store（美区账号）下载；Android 用户可在 Google Play 下载。</p>
+          </div>
+          <div class="access-option">
+            <h4>🇨🇳 方式三：国内第三方平台（无需自行访问国际版）</h4>
+            <p>多款国内 AI 平台已接入 Claude 模型，可直接在国内访问使用，例如：<strong>字节扣子（Coze）</strong>内置 Claude 选项；部分 API 聚合平台也提供 Claude 接口。这是新手最省心的入门方式。</p>
+          </div>
+          <div class="tip tip-warn">
+            <strong>注意：</strong>claude.ai 不支持中国大陆手机号注册，需要使用国际手机号或第三方登录（Google / Apple 账号）。
+          </div>
+        </div>
+
+        <div id="claude-start" class="tab-panel">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">快速上手 Claude</h3>
+          <ul class="steps">
+            <li><div class="step-num">1</div><div class="step-body"><h4>打开 claude.ai</h4><p>在浏览器地址栏输入 claude.ai，点击「Sign Up」注册。</p></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><h4>选择登录方式</h4><p>推荐使用 Google 账号或 Apple 账号登录，无需额外绑定手机号。</p></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><h4>开始第一次对话</h4><p>在底部输入框输入任何问题，按回车发送。例如：「你好，我是第一次使用 AI，能介绍一下你自己吗？」</p></div></li>
+            <li><div class="step-num">4</div><div class="step-body"><h4>上传文件（可选）</h4><p>点击输入框左侧的 📎 图标，可上传 PDF、Word 等文档，Claude 会阅读并回答你关于文档的问题。</p></div></li>
+          </ul>
+          <div class="tip tip-success">
+            <strong>新手建议：</strong>第一次用不知道说什么？直接把你工作中遇到的一个实际问题发给 Claude，比如「帮我写一封请假邮件，原因是家里有事需要请 2 天假」。
+          </div>
+        </div>
+
+        <div id="claude-pro" class="tab-panel">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">进阶使用技巧</h3>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:10px;">① 使用 System Prompt 设定角色</h4>
+          <p style="font-size:14px;color:var(--mid);margin-bottom:16px;">在 Claude 的「Project」功能中，可以设置持久的系统指令，让 Claude 在整个项目中保持固定角色，例如「你是一位专业的中文校对编辑，帮我检查文章的语法和逻辑问题」。</p>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:10px;">② 分步骤提问（Chain of Thought）</h4>
+          <p style="font-size:14px;color:var(--mid);margin-bottom:16px;">复杂任务不要一次性交给 Claude，而是分步骤：先让它分析问题，再让它给出方案，最后让它执行方案。这样能大幅提升输出质量。</p>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:10px;">③ Artifacts 功能</h4>
+          <p style="font-size:14px;color:var(--mid);margin-bottom:16px;">Claude 的 Artifacts 功能可以将代码、文档、图表等内容在独立窗口中展示和实时预览，特别适合网页开发和文档编写场景。</p>
+          <div class="tip tip-info">
+            <strong>进阶学习：</strong>想深度掌握 AI 提示词技巧，前往 <a href="../learn/intermediate.html" style="color:var(--primary);">进阶提升路径</a> 查看完整的 Prompt Engineering 教程。
+          </div>
+        </div>
+      </div>
+
+      <!-- =========== ChatGPT =========== -->
+      <div class="tool-detail" id="chatgpt">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#d1fae5;">🤖</div>
+          <div class="tool-header-info">
+            <h2>ChatGPT</h2>
+            <p>由美国 OpenAI 公司开发，2022 年 11 月发布，是现代 AI 对话助手的开创者，全球注册用户超过 3 亿。当前主力模型 GPT-4o 在综合能力方面表现优异。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-green">全球最广泛</span>
+              <span class="badge badge-blue">插件生态丰富</span>
+              <span class="badge badge-gray">需国际访问</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://chatgpt.com" target="_blank" class="btn btn-primary btn-sm">访问官网 ↗</a>
+              <a href="../compare/index.html#chat" class="btn btn-ghost btn-sm">与其他工具对比</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'gpt-what')">是什么</button>
+          <button class="tab-btn" onclick="switchTab(this,'gpt-access')">如何访问</button>
+          <button class="tab-btn" onclick="switchTab(this,'gpt-start')">快速上手</button>
+        </div>
+
+        <div id="gpt-what" class="tab-panel active">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:12px;">ChatGPT 是什么？</h3>
+          <p style="margin-bottom:16px;font-size:15px;color:var(--dark-3);">ChatGPT 是 OpenAI 公司开发的 AI 对话工具，当前主力模型为 <strong>GPT-4o</strong>。它不仅能进行文字对话，还支持图片识别、文件上传分析、联网搜索、图片生成（DALL·E 3 内置）、数据分析与绘图（Code Interpreter）、自定义 GPT（GPTs 商店）等丰富功能。</p>
+          <p style="margin-bottom:16px;font-size:15px;color:var(--dark-3);">ChatGPT 有免费版和付费版（ChatGPT Plus，$20/月）。免费版每日有限额使用 GPT-4o，Plus 用户可无限使用 GPT-4o、GPT-4 等模型，并优先使用新功能（如图片生成、高级数据分析等）。</p>
+        </div>
+
+        <div id="gpt-access" class="tab-panel">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">如何访问 ChatGPT？</h3>
+          <ul class="steps">
+            <li><div class="step-num">1</div><div class="step-body"><h4>访问 chatgpt.com</h4><p>在浏览器输入 chatgpt.com，点击「Sign Up」注册。需要国际邮箱（Gmail、Outlook 等），不支持中国大陆手机号。</p></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><h4>邮箱验证</h4><p>填写邮箱后查收验证邮件，点击链接完成验证。</p></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><h4>开始使用</h4><p>注册完成后直接在页面底部输入框对话。免费用户直接可用 GPT-4o 模型。</p></div></li>
+          </ul>
+          <div class="tip tip-warn">
+            <strong>注意：</strong>chatgpt.com 不支持中国大陆手机号注册，需要国际网络访问能力。国内用户可通过百度文心一言、豆包、Kimi 等国产替代品获得类似体验。
+          </div>
+        </div>
+
+        <div id="gpt-start" class="tab-panel">
+          <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">ChatGPT 能做什么？</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>文字创作与编辑</strong>：写邮件、写文章、翻译、总结文档、润色修改</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>代码编写与调试</strong>：支持 Python、JavaScript 等主流语言，可解释代码</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>图片识别与分析</strong>：上传图片，让 AI 描述、分析、提取文字</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>联网搜索</strong>：开启搜索功能后可获取实时信息</div></li>
+            <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>图片生成</strong>：直接用文字描述生成图片（DALL·E 3）</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- =========== Kimi =========== -->
+      <div class="tool-detail" id="kimi">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dbeafe;">🌙</div>
+          <div class="tool-header-info">
+            <h2>Kimi</h2>
+            <p>由北京月之暗面科技开发，2023 年发布。以超长上下文能力著称，支持最长约 200 万字的文档处理。擅长文档阅读、论文分析、长文总结等场景。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费可用</span>
+              <span class="badge badge-purple">长文本强</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://kimi.moonshot.cn" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              <a href="https://www.kimi.com/zh-cn/help/new-user-guide/overview" target="_blank" class="btn btn-ghost btn-sm">官方新手指南 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">快速上手 Kimi</h3>
+        <ul class="steps">
+          <li><div class="step-num">1</div><div class="step-body"><h4>访问 kimi.moonshot.cn</h4><p>国内直接访问，无需特殊设置。也可下载手机 App。</p></div></li>
+          <li><div class="step-num">2</div><div class="step-body"><h4>手机号注册</h4><p>支持中国大陆手机号注册，验证码登录即可。也可用微信扫码登录。</p></div></li>
+          <li><div class="step-num">3</div><div class="step-body"><h4>上传文档提问</h4><p>点击左侧 📎 按钮上传 PDF、Word、Excel 等文件，然后提问。例如：「总结这份 PDF 报告的 5 个核心要点」「找出这份合同中需要注意的法律条款」。</p></div></li>
+          <li><div class="step-num">4</div><div class="step-body"><h4>联网搜索</h4><p>Kimi 支持联网搜索模式，点击左上角开关即可开启，适合查询最新信息。</p></div></li>
+        </ul>
+        <div class="tip tip-success">
+          <strong>Kimi 最佳使用场景：</strong>① 长文档/论文速读（一次上传整本 PDF）；② 网页内容整理（粘贴长文章让 AI 总结）；③ 学术研究辅助（分析多篇论文并提取关键观点）。
+        </div>
+      </div>
+
+      <!-- =========== DeepSeek =========== -->
+      <div class="tool-detail" id="deepseek">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#ede9fe;">🔍</div>
+          <div class="tool-header-info">
+            <h2>DeepSeek</h2>
+            <p>由杭州深度求索开发。2025 年初 DeepSeek-R1 模型以低成本实现超越同期国际顶级模型的推理性能，引发全球关注。当前已发布 V4 系列模型。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费可用</span>
+              <span class="badge badge-purple">推理能力强</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://chat.deepseek.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              <a href="https://www.deepseek.com" target="_blank" class="btn btn-ghost btn-sm">公司官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">DeepSeek 的独特能力</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>「深度思考」模式</strong>：点击后 AI 会先展示完整推理过程再给出答案，适合数学题、逻辑题、代码调试等需要一步步思考的场景。非常适合用来学习解题思路。</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>代码与数学</strong>：在数学推理、代码编写和调试方面表现出色，可使用在线代码运行环境验证结果。</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>开源生态</strong>：DeepSeek 模型完全开源，可通过 Ollama 在本地运行，适合隐私敏感场景。</div></li>
+        </ul>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">快速上手</h3>
+        <ul class="steps">
+          <li><div class="step-num">1</div><div class="step-body"><h4>访问 chat.deepseek.com</h4><p>国内直接访问，手机号或邮箱注册。</p></div></li>
+          <li><div class="step-num">2</div><div class="step-body"><h4>选择模式</h4><p>普通问题用「通用」模式即可；复杂问题（数学、代码、逻辑）开启「深度思考」模式。</p></div></li>
+          <li><div class="step-num">3</div><div class="step-body"><h4>上传文件（可选）</h4><p>支持上传文档，可让 DeepSeek 基于文档内容进行分析和回答。</p></div></li>
+        </ul>
+        <div class="tip tip-warn">
+          <strong>高峰期提示：</strong>DeepSeek 官网在高流量时段可能出现排队等待，建议错峰使用或通过百度、阿里云等接入了 DeepSeek 的国内平台使用。
+        </div>
+      </div>
+
+      <!-- =========== 豆包 =========== -->
+      <div class="tool-detail" id="doubao">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#fef9c3;">🫘</div>
+          <div class="tool-header-info">
+            <h2>豆包</h2>
+            <p>字节跳动于 2023 年发布的 AI 助手，底层基于字节自研的豆包大模型。支持文字对话、图片生成、实时语音对话、联网搜索等功能，有网页版和手机 App。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费可用</span>
+              <span class="badge badge-orange">多模态</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://www.doubao.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">豆包的核心功能</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>AI 对话</strong>：日常问答、写作、翻译、学习辅导</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>AI 画图</strong>：输入描述即可生成图片（集成即梦AI能力）</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>语音对话</strong>：像打电话一样与 AI 实时语音交流</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>联网搜索</strong>：实时搜索互联网信息回答问题</div></li>
+        </ul>
+        <div class="tip tip-info">
+          <strong>登录便捷：</strong>豆包支持抖音/头条/西瓜视频等字节系账号直接登录，对这些平台的老用户最为方便。手机端在各大应用商店搜索「豆包」即可下载。
+        </div>
+      </div>
+
+      <!-- =========== 通义千问 =========== -->
+      <div class="tool-detail" id="qwen">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dcfce7;">🌿</div>
+          <div class="tool-header-info">
+            <h2>通义千问</h2>
+            <p>阿里巴巴集团旗下 AI 助手，底层为阿里云通义大模型（Qwen）。企业级应用生态完善，支持长文本处理、多模态输入（文字+图片），并可通过阿里云 API 接入企业应用。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费可用</span>
+              <span class="badge badge-purple">企业级生态</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://tongyi.aliyun.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              <a href="https://tongyi.aliyun.com/qianwen" target="_blank" class="btn btn-ghost btn-sm">对话版 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">通义千问是阿里云推出的 AI 大模型系列，分为免费对话版和付费 API 版。对话版支持长文档阅读、图片理解、代码编写等。在中文理解、文档处理、代码能力方面表现优秀。阿里云账号（支付宝账号可关联）即可登录使用。</p>
+        <div class="tip tip-success">
+          <strong>通义千问亮点：</strong>模型完全开源（GitHub 搜索 Qwen），可本地运行；阿里云生态完善，适合企业级集成部署。
+        </div>
+      </div>
+
+      <!-- ===== 学习资源 ===== -->
+      <div style="background:var(--lighter);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-top:16px;">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:14px;">📚 权威学习资源与教程</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;"><a href="https://aigwx.org/" target="_blank" style="color:var(--primary);">📖 AI跟我学</a> <span style="color:var(--mid);font-size:13px;">— 保姆级中文AI教程，覆盖ChatGPT/Claude/豆包/DeepSeek/Kimi</span></li>
+          <li style="font-size:14px;"><a href="https://cloud.tencent.com/developer/article/2610818" target="_blank" style="color:var(--primary);">📖 2026年AI学习完整指南（腾讯云）</a> <span style="color:var(--mid);font-size:13px;">— 12个月AI全链路学习计划</span></li>
+          <li style="font-size:14px;"><a href="https://segmentfault.com/a/1190000047617816" target="_blank" style="color:var(--primary);">📖 AI应用学习路线图（思否）</a> <span style="color:var(--mid);font-size:13px;">— 工具、心法、资源、趋势全覆盖</span></li>
+          <li style="font-size:14px;"><a href="https://www.promptingguide.ai/zh" target="_blank" style="color:var(--primary);">📖 提示工程指南（DAIR.AI 开源）</a> <span style="color:var(--mid);font-size:13px;">— 系统的 Prompt Engineering 中文教程</span></li>
+          <li style="font-size:14px;"><a href="https://www.chatgpt-chinese-guide.com/blog/chatgpt-prompt-engineering-guide.html" target="_blank" style="color:var(--primary);">📖 ChatGPT 提示词进阶指南（2026版）</a> <span style="color:var(--mid);font-size:13px;">— 从入门到精通的提示词实战教程</span></li>
+          <li style="font-size:14px;"><a href="https://www.kimi.com/zh-cn/help/new-user-guide/overview" target="_blank" style="color:var(--primary);">📖 Kimi 官方新手入门指南</a> <span style="color:var(--mid);font-size:13px;">— 官方出品的中文入门教程</span></li>
+        </ul>
+      </div>
+
+    </div><!-- .content-main -->
+
+    <!-- 侧边栏 -->
+    <aside class="content-sidebar">
+      <div class="sidebar-box">
+        <h3>🧭 本页工具快速跳转</h3>
+        <ul class="sidebar-nav">
+          <li><a href="#claude">🦞 Claude（小龙虾）</a></li>
+          <li><a href="#chatgpt">🤖 ChatGPT</a></li>
+          <li><a href="#kimi">🌙 Kimi</a></li>
+          <li><a href="#deepseek">🔍 DeepSeek</a></li>
+          <li><a href="#doubao">🫘 豆包</a></li>
+          <li><a href="#qwen">🌿 通义千问</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>⚖️ 快速选择建议</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:13px;">
+          <li><strong>不想折腾，国内直连</strong><br><span style="color:var(--mid);">→ Kimi / 豆包 / DeepSeek</span></li>
+          <li><strong>需要处理超长文档</strong><br><span style="color:var(--mid);">→ Kimi 或 Claude</span></li>
+          <li><strong>数学/代码/逻辑题</strong><br><span style="color:var(--mid);">→ DeepSeek R1 系列</span></li>
+          <li><strong>综合能力最强体验</strong><br><span style="color:var(--mid);">→ Claude Sonnet 或 ChatGPT-4o</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 相关页面</h3>
+        <ul class="sidebar-nav">
+          <li><a href="../compare/index.html#chat">对话工具横向对比</a></li>
+          <li><a href="../learn/beginner.html">零基础入门指南</a></li>
+          <li><a href="../learn/intermediate.html">提示词进阶技巧</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div><!-- .content-grid -->
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="../learn/beginner.html">零基础入门</a><a href="../learn/intermediate.html">进阶提升</a><a href="../learn/advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="chat.html">AI 对话助手</a><a href="image.html">AI 绘图工具</a><a href="video.html">AI 视频 / 音乐</a><a href="local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+<script>
+function switchTab(btn, panelId) {
+  const detail = btn.closest('.tool-detail');
+  detail.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  detail.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://lingqi-ai.pages.dev/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/learn/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/learn/beginner.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/learn/intermediate.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/learn/advanced.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/learn/plan.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/chat.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/image.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/video.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/local.html</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/office.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/tools/notes.html</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://lingqi-ai.pages.dev/compare/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+</urlset>

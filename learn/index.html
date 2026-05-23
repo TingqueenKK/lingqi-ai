@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学习路径 — 零启AI</title>
+  <meta name="description" content="三阶段AI学习路径：零基础入门、进阶提升、深度应用，体系化掌握AI工具。">
+  <meta property="og:title" content="学习路径 — 零启AI">
+  <meta property="og:description" content="三阶段AI学习路径：零基础入门、进阶提升、深度应用，体系化掌握AI工具。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/learn/">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/learn/">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .path-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:40px; }
+    .path-card {
+      background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg);
+      padding:36px 28px; text-align:center; position:relative; overflow:hidden;
+      transition:all .2s;
+    }
+    .path-card:hover { box-shadow:var(--shadow-md); transform:translateY(-4px); }
+    .path-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:5px;
+    }
+    .path-card.beginner::before { background:var(--success); }
+    .path-card.intermediate::before { background:var(--primary); }
+    .path-card.advanced::before { background:var(--warning); }
+    .path-icon { font-size:48px; margin-bottom:16px; }
+    .path-card h2 { font-size:22px; font-weight:800; margin-bottom:8px; }
+    .path-card .sub { font-size:13px; margin-bottom:16px; padding:4px 12px; border-radius:20px; display:inline-block; font-weight:600; }
+    .beginner .sub { background:#dcfce7; color:#166534; }
+    .intermediate .sub { background:var(--primary-light); color:var(--primary-dark); }
+    .advanced .sub { background:#fef3c7; color:#92400e; }
+    .path-card p { font-size:14px; color:var(--mid); margin-bottom:20px; text-align:left; line-height:1.7; }
+    .path-checklist { list-style:none; text-align:left; margin-bottom:24px; }
+    .path-checklist li { font-size:13px; color:var(--dark-3); padding:5px 0; display:flex; gap:8px; align-items:flex-start; border-bottom:1px solid var(--lighter); }
+    .path-checklist li:last-child { border-bottom:none; }
+    .path-checklist li::before { content:'→'; color:var(--primary); font-weight:700; flex-shrink:0; margin-top:1px; }
+    @media(max-width:900px){ .path-cards{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">学习路径</a></li>
+      <li class="has-sub">
+        <a href="../tools/index.html">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="../tools/chat.html">AI 对话助手</a></li>
+          <li><a href="../tools/image.html">AI 绘图工具</a></li>
+          <li><a href="../tools/video.html">AI 视频 / 音乐</a></li>
+          <li><a href="../tools/local.html">本地 AI / 智能体</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span><span>学习路径</span>
+</div>
+
+<section class="page-hero">
+  <h1>📚 AI 系统学习路径</h1>
+  <p>三个阶段，体系化掌握 AI。每个阶段有明确目标，不走弯路。</p>
+</section>
+
+<div class="main-content">
+
+  <div class="tip tip-info" style="margin-bottom:8px;">
+    <strong>怎么用这个页面？</strong>根据你的现有基础，选择对应阶段进入。不确定自己在哪里？从第一阶段开始，大部分内容你可以快速跳过。
+  </div>
+
+  <div class="path-cards">
+
+    <div class="path-card beginner">
+      <div class="path-icon">🌱</div>
+      <h2>零基础入门</h2>
+      <span class="sub">第一阶段 · 约 1-2 周</span>
+      <p>从「AI 是什么」开始，到能独立使用主流对话 AI 完成日常任务。不需要任何技术背景。</p>
+      <ul class="path-checklist">
+        <li>理解 AI、大模型、提示词的基本概念</li>
+        <li>选一款工具并完成注册登录</li>
+        <li>完成第一次有效的 AI 对话</li>
+        <li>掌握 5 种基础提示词写法</li>
+        <li>用 AI 完成一项实际工作任务</li>
+      </ul>
+      <a href="beginner.html" class="btn btn-primary" style="width:100%;justify-content:center;">进入第一阶段 →</a>
+    </div>
+
+    <div class="path-card intermediate">
+      <div class="path-icon">⚡</div>
+      <h2>进阶提升</h2>
+      <span class="sub">第二阶段 · 约 2-4 周</span>
+      <p>掌握 Prompt Engineering，学会使用 AI 绘图、AI 编程辅助，并初步了解智能体搭建。</p>
+      <ul class="path-checklist">
+        <li>掌握系统级提示词（System Prompt）编写</li>
+        <li>学会用 AI 生成图片（Midjourney/即梦）</li>
+        <li>用 AI 辅助写代码（Cursor/GitHub Copilot）</li>
+        <li>搭建第一个 Coze 智能体</li>
+        <li>建立个人 AI 工作流</li>
+      </ul>
+      <a href="intermediate.html" class="btn btn-primary" style="width:100%;justify-content:center;">进入第二阶段 →</a>
+    </div>
+
+    <div class="path-card advanced">
+      <div class="path-icon">🚀</div>
+      <h2>深度应用</h2>
+      <span class="sub">第三阶段 · 持续学习</span>
+      <p>开发应用程序、创作并发布音乐、搭建网站、完成小程序或 App 上架，实现 AI 深度创作。</p>
+      <ul class="path-checklist">
+        <li>用 AI 工具独立开发网站或小程序</li>
+        <li>创作完整 AI 歌曲并发布到平台</li>
+        <li>完成应用程序的应用商店上架</li>
+        <li>部署本地 AI 模型（Ollama）</li>
+        <li>搭建 RAG 知识库系统</li>
+      </ul>
+      <a href="advanced.html" class="btn btn-primary" style="width:100%;justify-content:center;">进入第三阶段 →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="beginner.html">零基础入门</a><a href="intermediate.html">进阶提升</a><a href="advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="../tools/chat.html">AI 对话助手</a><a href="../tools/image.html">AI 绘图工具</a><a href="../tools/video.html">AI 视频 / 音乐</a><a href="../tools/local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

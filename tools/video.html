@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI视频/音乐工具详解 — 零启AI</title>
+  <meta name="description" content="可灵AI、Runway、Suno、Udio、剪映AI等AI视频与音乐生成工具完整使用指南。">
+  <meta property="og:title" content="AI视频/音乐工具详解 — 零启AI">
+  <meta property="og:description" content="可灵AI、Runway、Suno、Udio、剪映AI等AI视频与音乐生成工具完整使用指南。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/tools/video.html">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/tools/video.html">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .tool-detail { scroll-margin-top: 80px; margin-bottom: 64px; }
+    .tool-header { display:flex; align-items:flex-start; gap:20px; background:var(--white); border:1px solid var(--border); border-radius:var(--radius-lg); padding:28px; margin-bottom:24px; }
+    .tool-header-icon { width:72px; height:72px; border-radius:18px; display:flex; align-items:center; justify-content:center; font-size:36px; flex-shrink:0; }
+    .tool-header-info h2 { font-size:26px; font-weight:800; margin-bottom:6px; }
+    .tool-header-info p { font-size:15px; color:var(--mid); margin-bottom:12px; line-height:1.7; }
+    .tool-header-meta { display:flex; gap:8px; flex-wrap:wrap; }
+    .tool-header-links { margin-top:14px; display:flex; gap:10px; flex-wrap:wrap; }
+    .resource-box { background:var(--lighter); border:1px solid var(--border); border-radius:var(--radius); padding:20px 24px; margin-top:32px; }
+    .resource-box h3 { font-size:18px; font-weight:700; margin-bottom:14px; }
+    .resource-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .resource-list li { font-size:14px; }
+    .resource-list li a { color:var(--primary); }
+    .resource-list li span { color:var(--mid); font-size:13px; }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="../learn/index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="index.html" class="active">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="chat.html">AI 对话助手</a></li>
+          <li><a href="image.html">AI 绘图工具</a></li>
+          <li><a href="video.html">AI 视频 / 音乐</a></li>
+          <li><a href="local.html">本地 AI / 智能体平台</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="../learn/advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span>
+  <a href="index.html">AI工具库</a><span>›</span>
+  <span>AI 视频 / 音乐</span>
+</div>
+
+<section class="page-hero">
+  <h1>🎬 AI 视频 / 音乐</h1>
+  <p>AI 生成视频和音乐的完整指南，含可灵、Runway、Suno、剪映等主流工具的使用教程</p>
+</section>
+
+<div class="main-content">
+  <div class="content-grid">
+    <div class="content-main">
+
+      <div class="tip tip-info" style="margin-bottom:28px;">
+        <strong>页面导航：</strong>本页分四大板块——<strong>AI 视频生成工具</strong>（可灵AI、Runway Gen-3、Pika、剪映AI、腾讯智影）、<strong>AI 配音 / 语音合成</strong>（魔音工坊、ElevenLabs）、<strong>AI 音乐创作工具</strong>（Suno、Udio）以及<strong>AI 翻译 / 字幕工具</strong>（网易见外）。每个工具均含访问方式、快速上手和进阶技巧。
+      </div>
+
+      <!-- ===== 视频板块 ===== -->
+      <h2 style="font-size:22px;font-weight:700;margin-bottom:24px;display:flex;align-items:center;gap:10px;">🎬 AI 视频生成</h2>
+
+      <!-- 可灵AI -->
+      <div class="tool-detail" id="kling">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#fef3c7;">🎬</div>
+          <div class="tool-header-info">
+            <h2>可灵 AI</h2>
+            <p>快手推出的 AI 视频生成工具，支持文生视频（输入文字描述生成视频）和图生视频（上传图片生成动态视频）。生成质量达到国际一流水平，是目前国内 AI 视频工具的标杆。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费额度</span>
+              <span class="badge badge-orange">快手出品</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://kling.kuaishou.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              <a href="https://klingai.kuaishou.com" target="_blank" class="btn btn-ghost btn-sm">可灵AI App下载 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">快速上手可灵 AI</h3>
+        <ul class="steps">
+          <li><div class="step-num">1</div><div class="step-body"><h4>访问 kling.kuaishou.com</h4><p>国内直接访问，快手/抖音账号可直接登录。也可下载手机 App 使用。</p></div></li>
+          <li><div class="step-num">2</div><div class="step-body"><h4>选择生成模式</h4><p><strong>文生视频</strong>：在输入框描述你想要的视频画面（如"一只金色蝴蝶在花丛中飞舞"）；<strong>图生视频</strong>：上传一张图片，描述想要的动态效果。</p></div></li>
+          <li><div class="step-num">3</div><div class="step-body"><h4>设置参数并生成</h4><p>选择视频时长（5s/10s）、画面比例（16:9/9:16/1:1），点击生成。通常等待 1-5 分钟。</p></div></li>
+          <li><div class="step-num">4</div><div class="step-body"><h4>预览和下载</h4><p>生成完成后可预览效果，满意则下载。不满意可重新调整 Prompt 重试。免费用户每日有一定生成额度。</p></div></li>
+        </ul>
+        <div class="tip tip-success">
+          <strong>新手建议：</strong>首次使用建议用<strong>图生视频</strong>模式，先在即梦AI或Midjourney生成一张满意的静态图，再导入可灵让它"动起来"，效果比纯文字描述更可控。
+        </div>
+      </div>
+
+      <!-- Runway -->
+      <div class="tool-detail" id="runway">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dbeafe;">🎞️</div>
+          <div class="tool-header-info">
+            <h2>Runway Gen-3</h2>
+            <p>国际领先的 AI 视频生成和编辑平台，由 Runway 公司开发。Gen-3 Alpha 模型在视频质量和运动一致性方面表现优异，被广泛应用于影视预告片、广告创意等场景。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-orange">国际顶级</span>
+              <span class="badge badge-gray">需国际访问</span>
+              <span class="badge badge-green">免费试用</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://runwayml.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">除视频生成外，Runway 还提供 AI 视频编辑功能（AI 去除背景、AI 生成字幕、运动追踪等），功能非常全面。免费试用 125 credits（可生成约 10 个短视频）。付费方案 $12/月起。</p>
+      </div>
+
+      <!-- Pika -->
+      <div class="tool-detail" id="pika">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#fce7f3;">⚡</div>
+          <div class="tool-header-info">
+            <h2>Pika</h2>
+            <p>由 Pika Labs 开发的 AI 视频生成工具，界面简洁，操作简单，支持文生视频和图生视频，以<strong>简单易用</strong>著称。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-green">免费额度</span>
+              <span class="badge badge-gray">需国际访问</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://pika.art" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">注册即送免费生成额度，Google 账号一键登录。支持视频延长、局部修改等编辑功能。适合想快速体验 AI 视频生成的新手。</p>
+      </div>
+
+      <!-- 剪映AI -->
+      <div class="tool-detail" id="jianying">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dcfce7;">✂️</div>
+          <div class="tool-header-info">
+            <h2>剪映（AI 功能）</h2>
+            <p>字节跳动旗下的视频编辑工具，集成多项 AI 功能：<strong>AI 自动字幕</strong>、<strong>AI 智能抠图</strong>、<strong>AI 配音</strong>、<strong>AI 润色文案</strong>、<strong>AI 模板成片</strong>等。电脑版和手机版均免费。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">完全免费</span>
+              <span class="badge badge-orange">字节跳动出品</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://www.jianying.com" target="_blank" class="btn btn-primary btn-sm">电脑版下载 ↗</a>
+            </div>
+          </div>
+        </div>
+          <h4 style="font-size:15px;font-weight:700;margin-bottom:14px;">📦 下载安装剪映（详细步骤）</h4>
+          <ul class="steps">
+            <li>
+              <div class="step-num">1</div>
+              <div class="step-body">
+                <h4>下载安装包</h4>
+                <p>访问 <strong>jianying.com</strong>，点击「免费下载」。Windows 用户下载「剪映专业版」（电脑端），约 500MB。手机用户在应用商店搜索「剪映」下载。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div class="step-body">
+                <h4>安装并登录</h4>
+                <p>双击下载的安装包，按提示安装。首次打开用<strong>手机号</strong>或<strong>抖音/头条账号</strong>登录。</p>
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div class="step-body">
+                <h4>体验 AI 字幕功能</h4>
+                <p>导入一段视频 → 点击顶部菜单「文本」→「智能字幕」→ 选择识别语言 → 等待生成 → 字幕自动添加到时间轴。全流程不到 1 分钟。</p>
+              </div>
+            </li>
+          </ul>
+        <div class="tip tip-success">
+          <strong>实用场景：</strong>① 录制完视频后用「AI 字幕」一键生成字幕；② 用「AI 配音」替换录音；③ 用「AI 润色」优化文案口播稿。剪映不是纯 AI 生成视频的工具，但 AI 辅助功能让视频制作效率大幅提升。
+        </div>
+      </div>
+
+      <!-- 腾讯智影 -->
+      <div class="tool-detail" id="zhiying">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dbeafe;">🎥</div>
+          <div class="tool-header-info">
+            <h2>腾讯智影</h2>
+            <p>腾讯推出的 AI 数字人视频制作平台，支持<strong>文本生成数字人播报视频</strong>、AI 配音、AI 字幕、AI 抠像等功能。输入文案即可生成带数字人出镜的短视频，适合快速制作口播类内容。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费额度</span>
+              <span class="badge badge-orange">腾讯出品</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://zenvideo.qq.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">免费版提供多个数字人形象和配音选择，支持导出 1080P 视频。适合没有出镜条件的知识博主、企业号运营者快速批量产出视频内容。</p>
+        <div class="tip tip-info">
+          <strong>使用技巧：</strong>① 先在 Claude 或 DeepSeek 中生成口播文案；② 复制到腾讯智影，选择合适的数字人形象和声音；③ 生成后可配合剪映做后续剪辑和包装。
+        </div>
+      </div>
+
+      <!-- ===== 配音/TTS板块 ===== -->
+      <h2 style="font-size:22px;font-weight:700;margin:48px 0 24px;display:flex;align-items:center;gap:10px;">🎙️ AI 配音 / 语音合成</h2>
+
+      <!-- 魔音工坊 -->
+      <div class="tool-detail" id="moyin">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#fce7f3;">🎙️</div>
+          <div class="tool-header-info">
+            <h2>魔音工坊</h2>
+            <p>出门问问推出的 AI 配音平台，拥有<strong>500+ 高品质发音人</strong>，覆盖中文、英文、日韩等多语种。支持文本转语音（TTS）、视频配音、有声书制作等场景，是国内 AI 配音领域的标杆产品。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">免费体验</span>
+              <span class="badge badge-orange">500+ 声音</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://www.moyin.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">适合制作视频旁白、有声读物、课件配音、广告配音等。提供在线编辑器，可调节语速、音调和停顿。免费用户每日有一定字符额度，付费套餐从 ¥30/月起。</p>
+      </div>
+
+      <!-- ElevenLabs -->
+      <div class="tool-detail" id="elevenlabs">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#ede9fe;">🔊</div>
+          <div class="tool-header-info">
+            <h2>ElevenLabs</h2>
+            <p>全球领先的 AI 语音合成平台，以<strong>极度逼真的语音克隆</strong>和<strong>多语言支持</strong>著称。只需上传几秒钟的音频即可克隆任意人的声音，支持 29 种语言，被广泛应用于视频配音、有声书、游戏旁白等场景。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-orange">国际顶级</span>
+              <span class="badge badge-green">免费额度</span>
+              <span class="badge badge-gray">需国际访问</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://elevenlabs.io" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">免费用户每月 10,000 字符额度。语音克隆功能需付费（Starter $5/月）。相比魔音工坊，ElevenLabs 在英文和多语言方面表现更优，中文支持也在持续改进。</p>
+        <div class="tip tip-warn">
+          <strong>注意事项：</strong>语音克隆涉及伦理和法律问题。请仅用于合法授权的用途，不得未经本人同意克隆他人声音。
+        </div>
+      </div>
+
+      <!-- ===== 翻译/字幕板块 ===== -->
+      <h2 style="font-size:22px;font-weight:700;margin:48px 0 24px;display:flex;align-items:center;gap:10px;">🌐 AI 翻译 / 字幕工具</h2>
+
+      <!-- 网易见外 -->
+      <div class="tool-detail" id="jianwai">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dcfce7;">🌐</div>
+          <div class="tool-header-info">
+            <h2>网易见外</h2>
+            <p>网易推出的 AI 翻译与生产力工具平台，提供<strong>语音转文字</strong>、<strong>视频翻译</strong>、<strong>文档翻译</strong>、<strong>图片 OCR</strong>、<strong>会议纪要</strong>等多项功能。完全免费，是国内少有的良心 AI 工具。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-blue">国内直连</span>
+              <span class="badge badge-green">完全免费</span>
+              <span class="badge badge-orange">网易出品</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://jianwai.netease.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h4 style="font-size:15px;font-weight:700;margin-bottom:12px;">主要功能</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>语音转文字</strong>：上传音视频文件，AI 自动生成带时间轴的文字稿。支持中英日韩等多种语言。</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>视频双语字幕</strong>：一键生成中英双语字幕文件（SRT 格式），可直接导入剪映等工具使用。</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>文档翻译</strong>：上传 Word/PPT/PDF 文档，AI 自动翻译并保持原文格式。</div></li>
+          <li style="display:flex;gap:10px;font-size:14px;"><span style="color:var(--success);font-weight:700;flex-shrink:0;">✓</span><div><strong>图片 OCR</strong>：识别图片中的文字，支持中英文混合识别。</div></li>
+        </ul>
+        <div class="tip tip-success">
+          <strong>实用场景：</strong>看英文 YouTube 视频时，先上传到网易见外生成中文字幕；有外文文档需要翻译时，直接上传文档翻译功能。完全免费且无需安装。
+        </div>
+      </div>
+
+      <!-- ===== 音乐板块 ===== -->
+      <h2 style="font-size:22px;font-weight:700;margin:48px 0 24px;display:flex;align-items:center;gap:10px;">🎵 AI 音乐创作</h2>
+
+      <!-- Suno -->
+      <div class="tool-detail" id="suno">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#ede9fe;">🎵</div>
+          <div class="tool-header-info">
+            <h2>Suno</h2>
+            <p>全球最热门的 AI 音乐生成工具，输入歌词或风格描述即可在数十秒内生成包含人声、旋律、编曲的完整歌曲。当前 V4 版本支持中文歌词，音乐质量达到广播级。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-orange">全球最热门</span>
+              <span class="badge badge-green">免费额度</span>
+              <span class="badge badge-blue">支持中文</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://suno.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+              <a href="https://aitoolboxtutor.com/ai-video-audio-tools/how-to-use-suno-ai-music" target="_blank" class="btn btn-ghost btn-sm">详细教程 ↗</a>
+            </div>
+          </div>
+        </div>
+        <h3 style="font-size:16px;font-weight:700;margin-bottom:14px;">快速上手 Suno</h3>
+        <ul class="steps">
+          <li><div class="step-num">1</div><div class="step-body"><h4>注册账号</h4><p>访问 suno.com，Google 账号一键注册。免费用户每日可生成 10 首歌曲。</p></div></li>
+          <li><div class="step-num">2</div><div class="step-body"><h4>选择创作模式</h4><p><strong>Simple Mode</strong>（简单模式）：输入一句话描述风格和主题，Suno 自动生成歌词和旋律；<strong>Custom Mode</strong>（自定义模式）：自己写歌词、选择风格标签、指定歌曲结构。</p></div></li>
+          <li><div class="step-num">3</div><div class="step-body"><h4>输入并生成</h4><p>输入描述如"一首欢快的中文流行歌，关于夏日旅行的回忆"，点击 Create。Suno 会生成 2 首候选歌曲。</p></div></li>
+          <li><div class="step-num">4</div><div class="step-body"><h4>下载和分享</h4><p>选择满意的歌曲，点击下载（MP3 格式）。付费用户可商用并去除水印。</p></div></li>
+        </ul>
+        <h4 style="font-size:15px;font-weight:700;margin:20px 0 10px;">风格标签参考</h4>
+        <p style="font-size:14px;color:var(--mid);margin-bottom:16px;">Suno 支持丰富的风格标签，中文标签会自动翻译为英文。常用标签：<code style="background:var(--light);padding:3px 8px;border-radius:4px;font-size:13px;">pop 流行, rock 摇滚, R&B, electronic 电子, classical 古典, jazz 爵士, folk 民谣, hip-hop 嘻哈, ballad 抒情</code>。可组合使用，如 "chinese pop ballad"（中文流行抒情）。</p>
+      </div>
+
+      <!-- Udio -->
+      <div class="tool-detail" id="udio">
+        <div class="tool-header">
+          <div class="tool-header-icon" style="background:#dbeafe;">🎸</div>
+          <div class="tool-header-info">
+            <h2>Udio</h2>
+            <p>Suno 的主要竞争对手，在音乐风格细节控制方面更加精细，支持更长的歌曲片段（最多 32 秒/段）。适合对音乐品质有更高要求的进阶创作者。</p>
+            <div class="tool-header-meta">
+              <span class="badge badge-orange">国际工具</span>
+              <span class="badge badge-green">免费额度</span>
+            </div>
+            <div class="tool-header-links">
+              <a href="https://udio.com" target="_blank" class="btn btn-primary btn-sm">官网 ↗</a>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);">免费用户每月可生成一定数量的歌曲，Google 账号一键登录。相比 Suno，Udio 在<strong>人声自然度</strong>和<strong>编曲丰富度</strong>方面有一定优势，但中文支持不如 Suno。</p>
+      </div>
+
+      <!-- 学习资源 -->
+      <div class="resource-box">
+        <h3>📚 权威学习资源与教程</h3>
+        <ul class="resource-list">
+          <li><a href="https://aitoolboxtutor.com/ai-video-audio-tools/how-to-use-suno-ai-music" target="_blank">📖 Suno AI 音乐生成完整教程</a> <span>— 从登录到出歌全流程</span></li>
+          <li><a href="https://zhuanlan.zhihu.com/p/688696210" target="_blank">📖 Suno 快速入门手册（知乎）</a> <span>— 保姆级教程</span></li>
+          <li><a href="https://cloud.tencent.com/developer/article/2610818" target="_blank">📖 2026年 AI 学习完整指南（腾讯云）</a> <span>— 12个月AI全链路学习计划</span></li>
+          <li><a href="https://juejin.cn/post/7531960461078183972" target="_blank">📖 Ollama+DeepSeek+Dify 零门槛全攻略（掘金）</a> <span>— 本地AI工作站搭建</span></li>
+          <li><a href="https://www.promptingguide.ai/zh" target="_blank">📖 提示工程指南（DAIR.AI 开源）</a> <span>— Prompt Engineering 系统学习</span></li>
+        </ul>
+      </div>
+
+    </div><!-- .content-main -->
+
+    <aside class="content-sidebar">
+      <div class="sidebar-box">
+        <h3>🧭 本页工具快速跳转</h3>
+        <ul class="sidebar-nav">
+          <li style="font-size:12px;color:var(--mid);padding:6px 10px;">— 视频生成 —</li>
+          <li><a href="#kling">🎬 可灵 AI</a></li>
+          <li><a href="#runway">🎞️ Runway Gen-3</a></li>
+          <li><a href="#pika">⚡ Pika</a></li>
+          <li><a href="#jianying">✂️ 剪映（AI功能）</a></li>
+          <li><a href="#zhiying">🎥 腾讯智影</a></li>
+          <li style="font-size:12px;color:var(--mid);padding:6px 10px;margin-top:8px;">— 配音 / TTS —</li>
+          <li><a href="#moyin">🎙️ 魔音工坊</a></li>
+          <li><a href="#elevenlabs">🔊 ElevenLabs</a></li>
+          <li style="font-size:12px;color:var(--mid);padding:6px 10px;margin-top:8px;">— 音乐创作 —</li>
+          <li><a href="#suno">🎵 Suno</a></li>
+          <li><a href="#udio">🎸 Udio</a></li>
+          <li style="font-size:12px;color:var(--mid);padding:6px 10px;margin-top:8px;">— 翻译 / 字幕 —</li>
+          <li><a href="#jianwai">🌐 网易见外</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>⚖️ 怎么选？</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;font-size:13px;">
+          <li><strong>国内做AI视频</strong><br><span style="color:var(--mid);">→ 可灵AI（质量高，免费额度）</span></li>
+          <li><strong>数字人口播视频</strong><br><span style="color:var(--mid);">→ 腾讯智影（输入文案生成数字人视频）</span></li>
+          <li><strong>国际高质量视频</strong><br><span style="color:var(--mid);">→ Runway Gen-3</span></li>
+          <li><strong>视频剪辑+AI辅助</strong><br><span style="color:var(--mid);">→ 剪映（完全免费，功能全面）</span></li>
+          <li><strong>中文AI配音</strong><br><span style="color:var(--mid);">→ 魔音工坊（500+声音，中文最优）</span></li>
+          <li><strong>声音克隆/多语言</strong><br><span style="color:var(--mid);">→ ElevenLabs（国际顶级语音克隆）</span></li>
+          <li><strong>AI音乐创作入门</strong><br><span style="color:var(--mid);">→ Suno（中文支持好，操作简单）</span></li>
+          <li><strong>精细音乐控制</strong><br><span style="color:var(--mid);">→ Udio（人声和编曲细节更优）</span></li>
+          <li><strong>视频字幕/翻译</strong><br><span style="color:var(--mid);">→ 网易见外（完全免费，中英双语字幕）</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 相关页面</h3>
+        <ul class="sidebar-nav">
+          <li><a href="../compare/index.html#video">视频/音乐工具对比</a></li>
+          <li><a href="image.html">AI 绘图工具</a></li>
+          <li><a href="chat.html">AI 对话助手</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div><!-- .content-grid -->
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="../learn/beginner.html">零基础入门</a><a href="../learn/intermediate.html">进阶提升</a><a href="../learn/advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="chat.html">AI 对话助手</a><a href="image.html">AI 绘图工具</a><a href="video.html">AI 视频 / 音乐</a><a href="local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

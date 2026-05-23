@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI工具功能对比 — 零启AI</title>
+  <meta name="description" content="AI对话助手、绘图工具、智能体平台功能横向对比，帮你做出最优工具选择。">
+  <meta property="og:title" content="AI工具功能对比 — 零启AI">
+  <meta property="og:description" content="AI对话助手、绘图工具、智能体平台功能横向对比，帮你做出最优工具选择。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/compare/">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/compare/">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .compare-tabs { display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap; }
+    .compare-tab {
+      padding:10px 24px; border-radius:20px; font-size:14px; font-weight:600;
+      cursor:pointer; border:1.5px solid var(--border); background:var(--white);
+      transition:all .2s; color:var(--mid);
+    }
+    .compare-tab.active { background:var(--primary); color:white; border-color:var(--primary); }
+    .compare-section { display:none; }
+    .compare-section.active { display:block; }
+    .table-wrap { overflow-x:auto; border-radius:var(--radius); border:1px solid var(--border); }
+    .highlight-col { background:#f0f4ff !important; }
+    .note { font-size:12px; color:var(--mid); margin-top:12px; }
+
+    /* 评分条 */
+    .score-bars { margin-top:32px; }
+    .score-bars h3 { font-size:18px; font-weight:700; margin-bottom:20px; }
+    .score-item { display:flex; align-items:center; gap:12px; margin-bottom:16px; }
+    .score-item .name { width:100px; font-size:14px; font-weight:600; text-align:right; flex-shrink:0; }
+    .score-item .bar-wrap { flex:1; height:24px; background:var(--border); border-radius:12px; overflow:hidden; position:relative; }
+    .score-item .bar { height:100%; border-radius:12px; transition: width .6s ease; display:flex; align-items:center; justify-content:flex-end; padding-right:10px; font-size:12px; font-weight:700; color:white; }
+    .score-item .bar.gold { background:linear-gradient(90deg,#f59e0b,#eab308); }
+    .score-item .bar.blue { background:linear-gradient(90deg,#3b82f6,#6366f1); }
+    .score-item .bar.green { background:linear-gradient(90deg,#22c55e,#10b981); }
+    .score-item .bar.purple { background:linear-gradient(90deg,#a855f7,#8b5cf6); }
+    .score-item .bar.gray { background:linear-gradient(90deg,#94a3b8,#64748b); }
+    .score-item .bar.red { background:linear-gradient(90deg,#ef4444,#f97316); }
+
+    /* 优缺点卡片 */
+    .pros-cons { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:24px; }
+    .pc-card { border:1px solid var(--border); border-radius:var(--radius); padding:20px; background:var(--white); }
+    .pc-card h4 { font-size:15px; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+    .pc-card ul { list-style:none; padding:0; margin:0; }
+    .pc-card li { font-size:13px; line-height:1.8; padding-left:18px; position:relative; }
+    .pc-card li::before { position:absolute; left:0; }
+    .pc-card .pros li::before { content:'✓'; color:var(--success); font-weight:700; }
+    .pc-card .cons li::before { content:'✗'; color:#ef4444; font-weight:700; }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="../learn/index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="../tools/index.html">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="../tools/chat.html">AI 对话助手</a></li>
+          <li><a href="../tools/image.html">AI 绘图工具</a></li>
+          <li><a href="../tools/video.html">AI 视频 / 音乐</a></li>
+          <li><a href="../tools/local.html">本地 AI / 智能体平台</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html" class="active">功能对比</a></li>
+      <li><a href="../learn/advanced.html">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span><span>功能对比</span>
+</div>
+
+<section class="page-hero">
+  <h1>📊 AI 工具功能横向对比</h1>
+  <p>同类工具逐项比较，免费额度、中文支持、擅长场景一目了然</p>
+</section>
+
+<div class="main-content">
+
+  <div class="tip tip-warn" style="margin-bottom:28px;">
+    <strong>数据说明：</strong>本页内容基于各工具官网公开信息整理，部分功能/定价可能随产品更新而变化，建议同时参考工具官网最新说明。最后更新：2026年5月。
+  </div>
+
+  <div class="compare-tabs">
+    <button class="compare-tab active" onclick="showCompare('chat',this)">💬 AI 对话助手</button>
+    <button class="compare-tab" onclick="showCompare('image',this)">🎨 AI 绘图工具</button>
+    <button class="compare-tab" onclick="showCompare('agent',this)">🤖 智能体平台</button>
+    <button class="compare-tab" onclick="showCompare('video',this)">🎬 AI 视频 / 音乐</button>
+    <button class="compare-tab" onclick="showCompare('local',this)">🦙 本地模型</button>
+  </div>
+
+  <!-- 对话助手对比 -->
+  <div id="chat" class="compare-section active">
+    <div class="section-title" style="margin-bottom:6px;">AI 对话助手对比</div>
+    <p class="section-sub">覆盖国内外 6 款主流对话 AI，重点关注新手最关心的维度</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th>🦞 Claude</th>
+            <th>🤖 ChatGPT</th>
+            <th class="highlight-col">🌙 Kimi</th>
+            <th class="highlight-col">🔍 DeepSeek</th>
+            <th class="highlight-col">🫘 豆包</th>
+            <th>🌿 通义千问</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>开发公司</strong></td>
+            <td>Anthropic（美）</td>
+            <td>OpenAI（美）</td>
+            <td class="highlight-col">月之暗面（中）</td>
+            <td class="highlight-col">深度求索（中）</td>
+            <td class="highlight-col">字节跳动（中）</td>
+            <td>阿里巴巴（中）</td>
+          </tr>
+          <tr>
+            <td><strong>国内是否直连</strong></td>
+            <td class="cross">✗ 需国际访问</td>
+            <td class="cross">✗ 需国际访问</td>
+            <td class="highlight-col check">✓ 直连</td>
+            <td class="highlight-col check">✓ 直连</td>
+            <td class="highlight-col check">✓ 直连</td>
+            <td class="check">✓ 直连</td>
+          </tr>
+          <tr>
+            <td><strong>免费额度</strong></td>
+            <td>有限免费 (每日限额)</td>
+            <td>有限免费 (每日限额)</td>
+            <td class="highlight-col">较充裕免费额度</td>
+            <td class="highlight-col">较充裕免费额度</td>
+            <td class="highlight-col">较充裕免费额度</td>
+            <td>较充裕免费额度</td>
+          </tr>
+          <tr>
+            <td><strong>付费订阅</strong></td>
+            <td>Claude Pro $20/月</td>
+            <td>ChatGPT Plus $20/月</td>
+            <td class="highlight-col">Kimi+ 约¥20/月</td>
+            <td class="highlight-col">DeepSeek Pro 约¥20/月</td>
+            <td class="highlight-col">豆包Pro 约¥19/月</td>
+            <td>通义Plus 约¥20/月</td>
+          </tr>
+          <tr>
+            <td><strong>中文处理质量</strong></td>
+            <td class="partial">★★★★☆ 良好</td>
+            <td class="partial">★★★★☆ 良好</td>
+            <td class="highlight-col check">★★★★★ 优秀</td>
+            <td class="highlight-col check">★★★★★ 优秀</td>
+            <td class="highlight-col check">★★★★★ 优秀</td>
+            <td class="check">★★★★★ 优秀</td>
+          </tr>
+          <tr>
+            <td><strong>最大上下文</strong></td>
+            <td>200,000 tokens</td>
+            <td>128,000 tokens</td>
+            <td class="highlight-col">约 200 万字（极长）</td>
+            <td class="highlight-col">64,000 tokens</td>
+            <td class="highlight-col">128,000 tokens</td>
+            <td>1,000,000 tokens</td>
+          </tr>
+          <tr>
+            <td><strong>文档/文件上传</strong></td>
+            <td class="check">✓ 支持</td>
+            <td class="check">✓ 支持</td>
+            <td class="highlight-col check">✓ 支持（强项）</td>
+            <td class="highlight-col check">✓ 支持</td>
+            <td class="highlight-col check">✓ 支持</td>
+            <td class="check">✓ 支持</td>
+          </tr>
+          <tr>
+            <td><strong>图片理解</strong></td>
+            <td class="check">✓ 支持</td>
+            <td class="check">✓ 支持</td>
+            <td class="highlight-col check">✓ 支持</td>
+            <td class="highlight-col check">✓ 支持</td>
+            <td class="highlight-col check">✓ 支持</td>
+            <td class="check">✓ 支持</td>
+          </tr>
+          <tr>
+            <td><strong>代码能力</strong></td>
+            <td class="check">★★★★★ 顶级</td>
+            <td class="check">★★★★★ 顶级</td>
+            <td class="highlight-col partial">★★★★☆ 良好</td>
+            <td class="highlight-col check">★★★★★ 顶级</td>
+            <td class="highlight-col partial">★★★★☆ 良好</td>
+            <td class="partial">★★★★☆ 良好</td>
+          </tr>
+          <tr>
+            <td><strong>联网搜索</strong></td>
+            <td class="partial">✓ 付费版支持</td>
+            <td class="partial">✓ 付费版支持</td>
+            <td class="highlight-col check">✓ 免费支持</td>
+            <td class="highlight-col check">✓ 免费支持</td>
+            <td class="highlight-col check">✓ 免费支持</td>
+            <td class="check">✓ 免费支持</td>
+          </tr>
+          <tr>
+            <td><strong>手机 App</strong></td>
+            <td>iOS / Android</td>
+            <td>iOS / Android</td>
+            <td class="highlight-col">iOS / Android</td>
+            <td class="highlight-col">iOS / Android</td>
+            <td class="highlight-col">iOS / Android</td>
+            <td>iOS / Android</td>
+          </tr>
+          <tr>
+            <td><strong>最擅长场景</strong></td>
+            <td>长文本、代码、指令执行</td>
+            <td>综合问答、创意写作</td>
+            <td class="highlight-col">文档阅读、学术研究</td>
+            <td class="highlight-col">数学、逻辑、代码推理</td>
+            <td class="highlight-col">日常对话、语音交互</td>
+            <td>知识问答、企业应用</td>
+          </tr>
+          <tr>
+            <td><strong>新手推荐度</strong></td>
+            <td class="partial">⭐⭐⭐⭐ 有门槛</td>
+            <td class="partial">⭐⭐⭐⭐ 有门槛</td>
+            <td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td>
+            <td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td>
+            <td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td>
+            <td class="check">⭐⭐⭐⭐⭐ 强推</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">💡 蓝色高亮列为国内直连工具，新手优先推荐从这三款入手，无需额外设置即可上手使用。</p>
+
+    <!-- 评分条 -->
+    <div class="score-bars">
+      <h3>综合评分（满分 100）</h3>
+      <div class="score-item"><span class="name">Claude</span><div class="bar-wrap"><div class="bar blue" style="width:92%">92</div></div></div>
+      <div class="score-item"><span class="name">ChatGPT</span><div class="bar-wrap"><div class="bar blue" style="width:90%">90</div></div></div>
+      <div class="score-item"><span class="name">Kimi</span><div class="bar-wrap"><div class="bar gold" style="width:88%">88</div></div></div>
+      <div class="score-item"><span class="name">DeepSeek</span><div class="bar-wrap"><div class="bar gold" style="width:90%">90</div></div></div>
+      <div class="score-item"><span class="name">豆包</span><div class="bar-wrap"><div class="bar gold" style="width:85%">85</div></div></div>
+      <div class="score-item"><span class="name">通义千问</span><div class="bar-wrap"><div class="bar gray" style="width:83%">83</div></div></div>
+    </div>
+
+    <!-- 优缺点 -->
+    <div class="pros-cons">
+      <div class="pc-card"><h4>🦞 Claude</h4><ul class="pros"><li>代码能力业界顶级</li><li>指令遵循度极高</li><li>安全边界清晰</li></ul><ul class="cons" style="margin-top:10px;"><li>需国际网络访问</li><li>免费额度较紧张</li></ul></div>
+      <div class="pc-card"><h4>🤖 ChatGPT</h4><ul class="pros"><li>综合能力最强</li><li>插件/生态最丰富</li><li>多模态支持完善</li></ul><ul class="cons" style="margin-top:10px;"><li>需国际网络访问</li><li>免费版 GPT-4o-mini 有限制</li></ul></div>
+      <div class="pc-card"><h4>🌙 Kimi</h4><ul class="pros"><li>200万字超长上下文</li><li>文档阅读能力极强</li><li>国内直连，注册简单</li></ul><ul class="cons" style="margin-top:10px;"><li>代码能力稍弱</li><li>复杂推理偶有偏差</li></ul></div>
+      <div class="pc-card"><h4>🔍 DeepSeek</h4><ul class="pros"><li>数学/逻辑推理顶级</li><li>R1 深度思考效果惊艳</li><li>开源模型可本地部署</li></ul><ul class="cons" style="margin-top:10px;"><li>创意写作一般</li><li>上下文长度 64K 偏短</li></ul></div>
+      <div class="pc-card"><h4>🫘 豆包</h4><ul class="pros"><li>语音交互体验好</li><li>字节生态集成度高</li><li>上手门槛最低</li></ul><ul class="cons" style="margin-top:10px;"><li>复杂任务处理一般</li><li>代码能力中等</li></ul></div>
+      <div class="pc-card"><h4>🌿 通义千问</h4><ul class="pros"><li>100万 token 上下文</li><li>阿里生态集成</li><li>企业版功能丰富</li></ul><ul class="cons" style="margin-top:10px;"><li>个人体验不够突出</li><li>品牌认知度偏低</li></ul></div>
+    </div>
+
+    <div class="tip tip-info" style="margin-top:20px;">
+      <strong>选择建议：</strong>
+      <ul style="margin-top:8px;padding-left:20px;font-size:14px;line-height:2;">
+        <li>完全零基础 → 先用 <strong>豆包</strong> 或 <strong>Kimi</strong>，国内手机号注册，5分钟上手</li>
+        <li>要做数学、写代码 → <strong>DeepSeek R1</strong>（开启深度思考模式）</li>
+        <li>要处理长文档 → <strong>Kimi</strong>（200万字上下文）</li>
+        <li>要最强综合体验，不介意访问国际版 → <strong>Claude Sonnet</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AI 绘图对比 -->
+  <div id="image" class="compare-section">
+    <div class="section-title" style="margin-bottom:6px;">AI 绘图工具对比</div>
+    <p class="section-sub">主流图像生成工具功能与定价对比</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th>Midjourney</th>
+            <th class="highlight-col">即梦 AI</th>
+            <th class="highlight-col">通义万象</th>
+            <th>DALL·E 3</th>
+            <th class="highlight-col">文心一格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>开发方</strong></td><td>Midjourney Inc.（美）</td><td class="highlight-col">字节跳动（中）</td><td class="highlight-col">阿里巴巴（中）</td><td>OpenAI（美）</td><td class="highlight-col">百度（中）</td></tr>
+          <tr><td><strong>国内直连</strong></td><td class="cross">✗</td><td class="highlight-col check">✓</td><td class="highlight-col check">✓</td><td class="cross">✗</td><td class="highlight-col check">✓</td></tr>
+          <tr><td><strong>免费额度</strong></td><td class="cross">✗ 无免费</td><td class="highlight-col check">✓ 每日赠送</td><td class="highlight-col check">✓ 每日赠送</td><td class="partial">✓ 含于 ChatGPT</td><td class="highlight-col check">✓ 部分免费</td></tr>
+          <tr><td><strong>最低付费</strong></td><td>$10/月 (约¥72)</td><td class="highlight-col">约¥30/月</td><td class="highlight-col">按量付费</td><td>含于 $20/月</td><td class="highlight-col">约¥30/月</td></tr>
+          <tr><td><strong>图像质量</strong></td><td class="check">★★★★★ 顶级</td><td class="highlight-col partial">★★★★☆ 优秀</td><td class="highlight-col partial">★★★★☆ 优秀</td><td class="partial">★★★★☆ 优秀</td><td class="highlight-col partial">★★★★☆ 良好</td></tr>
+          <tr><td><strong>中文提示词</strong></td><td class="cross">⚠️ 需英文</td><td class="highlight-col check">✓ 原生中文</td><td class="highlight-col check">✓ 原生中文</td><td class="partial">✓ 部分支持</td><td class="highlight-col check">✓ 原生中文</td></tr>
+          <tr><td><strong>图片生成速度</strong></td><td class="partial">中等（排队）</td><td class="highlight-col check">快速</td><td class="highlight-col check">快速</td><td class="partial">中等</td><td class="highlight-col check">较快</td></tr>
+          <tr><td><strong>商业使用授权</strong></td><td class="partial">✓ 付费版可商用</td><td class="highlight-col partial">⚠️ 需确认条款</td><td class="highlight-col partial">⚠️ 需确认条款</td><td class="partial">✓ 付费版可商用</td><td class="highlight-col partial">⚠️ 需确认条款</td></tr>
+          <tr><td><strong>新手推荐度</strong></td><td class="partial">⭐⭐⭐ 有学习曲线</td><td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td><td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td><td class="partial">⭐⭐⭐ 有门槛</td><td class="highlight-col partial">⭐⭐⭐⭐ 推荐</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip tip-info" style="margin-top:20px;">
+      <strong>选择建议：</strong>国内新手直接用<strong>即梦AI</strong>，中文提示词、免费额度、直连访问三合一；追求最高质量且不介意访问国际版，选<strong>Midjourney</strong>。
+    </div>
+
+    <!-- 绘图评分条 -->
+    <div class="score-bars">
+      <h3>综合评分（满分 100）</h3>
+      <div class="score-item"><span class="name">Midjourney</span><div class="bar-wrap"><div class="bar blue" style="width:95%">95</div></div></div>
+      <div class="score-item"><span class="name">即梦 AI</span><div class="bar-wrap"><div class="bar gold" style="width:85%">85</div></div></div>
+      <div class="score-item"><span class="name">通义万象</span><div class="bar-wrap"><div class="bar gold" style="width:82%">82</div></div></div>
+      <div class="score-item"><span class="name">DALL·E 3</span><div class="bar-wrap"><div class="bar gray" style="width:84%">84</div></div></div>
+      <div class="score-item"><span class="name">文心一格</span><div class="bar-wrap"><div class="bar gray" style="width:78%">78</div></div></div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-card"><h4>🎨 Midjourney</h4><ul class="pros"><li>图像质量业界第一</li><li>艺术风格多样</li><li>社区活跃灵感多</li></ul><ul class="cons" style="margin-top:10px;"><li>需国际网络</li><li>无免费额度</li><li>仅支持英文提示词</li></ul></div>
+      <div class="pc-card"><h4>🖼️ 即梦 AI</h4><ul class="pros"><li>中文提示词原生支持</li><li>免费额度充足</li><li>图片+视频一站式</li></ul><ul class="cons" style="margin-top:10px;"><li>细节控制精度有限</li><li>复杂构图偶尔偏差</li></ul></div>
+      <div class="pc-card"><h4>🌲 通义万象</h4><ul class="pros"><li>阿里生态整合</li><li>商用授权清晰</li><li>API 接口丰富</li></ul><ul class="cons" style="margin-top:10px;"><li>创意风格较少</li><li>图片质量偶有噪点</li></ul></div>
+    </div>
+  </div>
+
+  <!-- 智能体平台对比 -->
+  <div id="agent" class="compare-section">
+    <div class="section-title" style="margin-bottom:6px;">AI 智能体 / Agent 平台对比</div>
+    <p class="section-sub">零代码云端智能体、自托管 Agent 框架、本地模型运行，三类工具横向对比</p>
+    <div class="tip tip-info" style="margin-bottom:20px;">
+      <strong>分类说明：</strong>本表涵盖三类不同定位的工具——<strong>零代码云端</strong>（Coze/文心智能体，无需部署）、<strong>自托管 Agent 平台</strong>（OpenClaw/Dify，部署在自己服务器）、<strong>本地模型运行</strong>（Ollama，完全离线）。按你的数据隐私需求和技术门槛选择。
+    </div>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th class="highlight-col">Coze（扣子）</th>
+            <th class="highlight-col">OpenClaw</th>
+            <th>Dify</th>
+            <th>Ollama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>开发方</strong></td><td class="highlight-col">字节跳动（中）</td><td class="highlight-col">开源社区 · 自托管</td><td>LangGenius（开源）</td><td>开源项目</td></tr>
+          <tr><td><strong>定位</strong></td><td class="highlight-col">零代码云端智能体</td><td class="highlight-col">多模型 Agent 自托管</td><td>AI 应用开发平台</td><td>本地模型运行框架</td></tr>
+          <tr><td><strong>是否需要编程</strong></td><td class="highlight-col check">✓ 无需编程</td><td class="highlight-col partial">⚠️ 需基础部署能力</td><td class="partial">⚠️ 部分需要</td><td class="partial">⚠️ 命令行操作</td></tr>
+          <tr><td><strong>国内直连</strong></td><td class="highlight-col check">✓</td><td class="highlight-col check">✓ 自建服务</td><td class="partial">⚠️ 需自部署</td><td class="check">✓ 完全离线</td></tr>
+          <tr><td><strong>数据隐私</strong></td><td class="highlight-col partial">⚠️ 存字节云端</td><td class="highlight-col check">✓ 自有服务器</td><td class="check">✓ 自有服务器</td><td class="check">✓ 完全本地</td></tr>
+          <tr><td><strong>多模型接入</strong></td><td class="highlight-col check">✓ GPT-4/Claude/豆包</td><td class="highlight-col check">✓ 20+ 外部 + 6+ 本地</td><td class="check">✓ 支持 100+ 模型</td><td class="partial">⚠️ 单次运行一个</td></tr>
+          <tr><td><strong>免费使用</strong></td><td class="highlight-col check">✓ 较充裕</td><td class="highlight-col check">✓ 开源免费</td><td class="check">✓ 开源免费</td><td class="check">✓ 完全免费</td></tr>
+          <tr><td><strong>Agent 编排</strong></td><td class="highlight-col check">✓ Workflow</td><td class="highlight-col check">✓ 多模型协同</td><td class="check">✓ ReAct / FC</td><td class="cross">✗ 不支持</td></tr>
+          <tr><td><strong>RAG 知识库</strong></td><td class="highlight-col check">✓</td><td class="highlight-col partial">⚠️ 取决于接入模型</td><td class="check">✓ 核心功能</td><td class="cross">✗ 需配合其他工具</td></tr>
+          <tr><td><strong>新手推荐度</strong></td><td class="highlight-col check">⭐⭐⭐⭐⭐ 强推</td><td class="highlight-col partial">⭐⭐⭐ 有部署门槛</td><td class="partial">⭐⭐⭐ 有学习成本</td><td class="partial">⭐⭐⭐ 需命令行基础</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip tip-success" style="margin-top:20px;">
+      <strong>选择建议：</strong>新手首选 <strong>Coze 扣子</strong>（零代码、国内直连）；多 AI 账号统一管理选 <strong>OpenClaw</strong>（自托管、数据私有）；搭建知识库问答选 <strong>Dify</strong>（RAG 核心功能强）；不想花钱、完全离线选 <strong>Ollama</strong> + Hermes / Llama 模型。
+    </div>
+
+    <!-- 智能体评分条 -->
+    <div class="score-bars">
+      <h3>综合评分（满分 100）</h3>
+      <div class="score-item"><span class="name">Coze</span><div class="bar-wrap"><div class="bar gold" style="width:88%">88</div></div></div>
+      <div class="score-item"><span class="name">OpenClaw</span><div class="bar-wrap"><div class="bar purple" style="width:86%">86</div></div></div>
+      <div class="score-item"><span class="name">Dify</span><div class="bar-wrap"><div class="bar gray" style="width:84%">84</div></div></div>
+      <div class="score-item"><span class="name">Ollama</span><div class="bar-wrap"><div class="bar green" style="width:80%">80</div></div></div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-card"><h4>🧩 Coze 扣子</h4><ul class="pros"><li>零代码拖拽搭建</li><li>多模型一键切换</li><li>插件市场丰富</li><li>国内直连免部署</li></ul><ul class="cons" style="margin-top:10px;"><li>数据存字节云端</li><li>自定义程度有限</li></ul></div>
+      <div class="pc-card"><h4>🦀 OpenClaw</h4><ul class="pros"><li>20+ 平台统一接入</li><li>数据完全自有</li><li>多模型协同编排</li><li>开源免费</li></ul><ul class="cons" style="margin-top:10px;"><li>需要 Docker 部署</li><li>需要基础运维能力</li></ul></div>
+      <div class="pc-card"><h4>🔄 Dify</h4><ul class="pros"><li>RAG 知识库核心功能强</li><li>可视化工作流编排</li><li>100+ 模型支持</li><li>开源社区活跃</li></ul><ul class="cons" style="margin-top:10px;"><li>学习成本较高</li><li>中文文档不完善</li></ul></div>
+      <div class="pc-card"><h4>🦙 Ollama</h4><ul class="pros"><li>完全离线运行</li><li>数据零泄露</li><li>命令行极简</li><li>支持主流开源模型</li></ul><ul class="cons" style="margin-top:10px;"><li>需要本地 GPU</li><li>无 Agent 编排功能</li></ul></div>
+    </div>
+  </div>
+
+  <!-- AI 视频/音乐对比 -->
+  <div id="video" class="compare-section">
+    <div class="section-title" style="margin-bottom:6px;">AI 视频 / 音乐工具对比</div>
+    <p class="section-sub">AI 生成视频和音乐领域的主流工具对比</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>工具</th>
+            <th>类型</th>
+            <th>国内直连</th>
+            <th>免费额度</th>
+            <th>最低付费</th>
+            <th>擅长场景</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>可灵 AI</strong></td><td>视频生成</td><td class="check">✓</td><td class="check">✓ 每日赠送</td><td>约 ¥66/月</td><td>文生视频、图生视频，质量国内顶级</td></tr>
+          <tr><td><strong>即梦 AI（视频）</strong></td><td>视频生成</td><td class="check">✓</td><td class="check">✓ 有免费额度</td><td>约 ¥30/月</td><td>视频+图片一站式生成</td></tr>
+          <tr><td><strong>Sora（OpenAI）</strong></td><td>视频生成</td><td class="cross">✗</td><td class="cross">✗ 无免费</td><td>含于 $20/月</td><td>长视频、高真实感，创意场景</td></tr>
+          <tr><td><strong>Runway Gen-3</strong></td><td>视频生成</td><td class="cross">✗</td><td class="partial">有限免费</td><td>$15/月</td><td>视频编辑、局部重绘</td></tr>
+          <tr><td><strong>Suno</strong></td><td>音乐生成</td><td class="cross">✗</td><td class="check">✓ 50积分/天</td><td>$8/月</td><td>完整歌曲生成（含人声）</td></tr>
+          <tr><td><strong>Udio</strong></td><td>音乐生成</td><td class="cross">✗</td><td class="check">✓ 有免费额度</td><td>$10/月</td><td>音乐风格细节控制</td></tr>
+          <tr><td><strong>网易天音</strong></td><td>音乐生成</td><td class="check">✓</td><td class="check">✓</td><td>免费为主</td><td>国内直连 AI 音乐生成</td></tr>
+        </tbody>
+      </table>
+    <!-- 视频/音乐评分条 -->
+    <div class="score-bars">
+      <h3>综合评分（满分 100）</h3>
+      <div class="score-item"><span class="name">可灵 AI</span><div class="bar-wrap"><div class="bar gold" style="width:90%">90</div></div></div>
+      <div class="score-item"><span class="name">Sora</span><div class="bar-wrap"><div class="bar blue" style="width:88%">88</div></div></div>
+      <div class="score-item"><span class="name">Runway</span><div class="bar-wrap"><div class="bar gray" style="width:82%">82</div></div></div>
+      <div class="score-item"><span class="name">Suno</span><div class="bar-wrap"><div class="bar purple" style="width:87%">87</div></div></div>
+      <div class="score-item"><span class="name">网易天音</span><div class="bar-wrap"><div class="bar green" style="width:75%">75</div></div></div>
+    </div>
+    <div class="pros-cons">
+      <div class="pc-card"><h4>🎬 可灵 AI</h4><ul class="pros"><li>国内视频生成质量顶级</li><li>文生视频+图生视频</li><li>免费额度充足</li></ul><ul class="cons" style="margin-top:10px;"><li>视频时长有限</li><li>付费版价格偏高</li></ul></div>
+      <div class="pc-card"><h4>🎵 Suno</h4><ul class="pros"><li>完整歌曲生成含人声</li><li>风格覆盖极广</li><li>创意性极强</li></ul><ul class="cons" style="margin-top:10px;"><li>需国际网络</li><li>歌词理解偶有偏差</li></ul></div>
+    </div>
+  </div>
+
+  <!-- 本地模型对比 -->
+  <div id="local" class="compare-section">
+    <div class="section-title" style="margin-bottom:6px;">本地 AI 模型对比</div>
+    <p class="section-sub">通过 Ollama 等工具本地运行的开源大模型对比</p>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th>Llama 3.1</th>
+            <th>Qwen 2.5</th>
+            <th>DeepSeek-V2</th>
+            <th>Gemma 2</th>
+            <th>Mistral</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>开发方</strong></td><td>Meta（美）</td><td>阿里巴巴（中）</td><td>深度求索（中）</td><td>Google（美）</td><td>Mistral AI（法）</td></tr>
+          <tr><td><strong>中文能力</strong></td><td class="partial">★★★★☆ 良好</td><td class="check">★★★★★ 优秀</td><td class="check">★★★★★ 优秀</td><td class="partial">★★★☆☆ 一般</td><td class="partial">★★★★☆ 良好</td></tr>
+          <tr><td><strong>代码能力</strong></td><td class="check">★★★★★ 顶级</td><td class="check">★★★★☆ 良好</td><td class="check">★★★★★ 顶级</td><td class="partial">★★★★☆ 良好</td><td class="check">★★★★★ 顶级</td></tr>
+          <tr><td><strong>最低显存</strong></td><td>8GB (8B)</td><td>4GB (1.5B)</td><td>16GB (7B)</td><td>8GB (9B)</td><td>8GB (7B)</td></tr>
+          <tr><td><strong>推荐参数量</strong></td><td>8B / 70B</td><td>7B / 14B / 72B</td><td>7B (量化)</td><td>9B / 27B</td><td>7B / 8x22B</td></tr>
+          <tr><td><strong>开源协议</strong></td><td>LLaMA License</td><td>Apache 2.0</td><td>MIT</td><td>Gemma License</td><td>Apache 2.0</td></tr>
+          <tr><td><strong>本地运行命令</strong></td><td><code>ollama run llama3.1</code></td><td><code>ollama run qwen2.5</code></td><td><code>ollama run deepseek-v2</code></td><td><code>ollama run gemma2</code></td><td><code>ollama run mistral</code></td></tr>
+          <tr><td><strong>综合推荐</strong></td><td>综合能力强，英文顶级</td><td class="check">中文场景首选</td><td>代码推理最强</td><td>轻量好上手</td><td>欧洲合规首选</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="score-bars">
+      <h3>本地运行推荐度（满分 100）</h3>
+      <div class="score-item"><span class="name">Qwen 2.5</span><div class="bar-wrap"><div class="bar gold" style="width:92%">92</div></div></div>
+      <div class="score-item"><span class="name">Llama 3.1</span><div class="bar-wrap"><div class="bar blue" style="width:90%">90</div></div></div>
+      <div class="score-item"><span class="name">DeepSeek-V2</span><div class="bar-wrap"><div class="bar purple" style="width:88%">88</div></div></div>
+      <div class="score-item"><span class="name">Mistral</span><div class="bar-wrap"><div class="bar gray" style="width:85%">85</div></div></div>
+      <div class="score-item"><span class="name">Gemma 2</span><div class="bar-wrap"><div class="bar green" style="width:82%">82</div></div></div>
+    </div>
+    <div class="tip tip-success" style="margin-top:20px;">
+      <strong>选择建议：</strong>中文用户本地运行首选 <strong>Qwen 2.5</strong>（Apache 2.0 完全开源、中文最强、4GB 显存即可起步）；代码开发优先 <strong>DeepSeek-V2</strong> 或 <strong>Llama 3.1</strong>；显存紧张选 <strong>Qwen 2.5 1.5B</strong>。
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="../learn/beginner.html">零基础入门</a><a href="../learn/intermediate.html">进阶提升</a><a href="../learn/advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="../tools/chat.html">AI 对话助手</a><a href="../tools/image.html">AI 绘图工具</a><a href="../tools/video.html">AI 视频 / 音乐</a><a href="../tools/local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="index.html">功能对比</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+<script>
+function showCompare(id, btn) {
+  document.querySelectorAll('.compare-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.compare-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

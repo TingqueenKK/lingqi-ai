@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深度应用 — 零启AI</title>
+  <meta name="description" content="AI Agent搭建、本地模型部署、AI自动化工作流、智能体发布上架等深度应用指南。">
+  <meta property="og:title" content="深度应用 — 零启AI">
+  <meta property="og:description" content="AI Agent搭建、本地模型部署、AI自动化工作流、智能体发布上架等深度应用指南。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/learn/advanced.html">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/learn/advanced.html">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">学习路径</a></li>
+      <li class="has-sub">
+        <a href="../tools/index.html">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="../tools/chat.html">AI 对话助手</a></li>
+          <li><a href="../tools/image.html">AI 绘图工具</a></li>
+          <li><a href="../tools/video.html">AI 视频 / 音乐</a></li>
+          <li><a href="../tools/local.html">本地 AI / 智能体平台</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="advanced.html" class="active">深度应用</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span>
+  <a href="index.html">学习路径</a><span>›</span>
+  <span>深度应用</span>
+</div>
+
+<section class="page-hero">
+  <h1>🚀 深度应用</h1>
+  <p>AI Agent 搭建、本地模型部署、自动化工作流、应用发布上架等专业级 AI 应用</p>
+</section>
+
+<div class="main-content">
+  <div class="content-grid">
+    <div class="content-main">
+
+      <div class="tip tip-info" style="margin-bottom:32px;">
+        <strong>前置要求：</strong>本页内容适合已掌握 AI 基础使用（对话、绘图、音乐）的用户。如果你还没有用过 AI 工具，建议先完成 <a href="beginner.html" style="color:var(--primary);">零基础入门</a>。
+      </div>
+
+      <!-- Agent搭建 -->
+      <div id="agent-build" style="margin-bottom:56px;">
+        <h2 style="font-size:22px;font-weight:700;margin-bottom:6px;">🤖 AI Agent（智能体）搭建</h2>
+        <p style="font-size:14px;color:var(--mid);margin-bottom:20px;">智能体是 AI 的进阶形态——不只是对话，而是能自主执行任务、调用工具、处理复杂工作流的 AI 系统。</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:24px;">
+          <a href="../tools/local.html#coze" class="card" style="text-decoration:none;color:inherit;border-left:4px solid var(--success);">
+            <div class="card-body">
+              <h3 class="card-title">🔧 Coze 扣子（零代码）</h3>
+              <div class="card-desc">无需编程，可视化搭建 AI 智能体，可发布到微信/飞书。适合非技术人员。</div>
+            </div>
+          </a>
+          <a href="../tools/local.html#openclaw" class="card" style="text-decoration:none;color:inherit;border-left:4px solid var(--primary);">
+            <div class="card-body">
+              <h3 class="card-title">🦀 OpenClaw（自托管）</h3>
+              <div class="card-desc">多模型聚合 Agent 平台，20+ 平台统一管理，数据完全私有。</div>
+            </div>
+          </a>
+          <a href="../tools/local.html#dify" class="card" style="text-decoration:none;color:inherit;border-left:4px solid var(--warning);">
+            <div class="card-body">
+              <h3 class="card-title">⚡ Dify（工作流平台）</h3>
+              <div class="card-desc">可视化 RAG 知识库 + 工作流编排 + Agent 框架，适合企业应用开发。</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Coze 实操教程 -->
+        <div class="card" style="margin-bottom:16px;border-left:4px solid var(--success);">
+          <div class="card-body">
+            <h3 class="card-title">🔧 Coze 扣子：10分钟搭建你的第一个智能体</h3>
+            <div class="card-desc">
+              <ol style="margin-left:20px;line-height:2.2;font-size:14px;">
+                <li><strong>注册账号：</strong>打开 <a href="https://www.coze.cn" target="_blank">coze.cn</a>，手机号注册登录</li>
+                <li><strong>创建智能体：</strong>点击「创建智能体」→ 填写名称（如"学习助手"）→ 选择模型（推荐豆包）→ 填写人设描述（如"你是一位专业的考研辅导老师，擅长梳理知识点"）</li>
+                <li><strong>添加插件：</strong>在「插件」栏搜索并添加「网页搜索」「图片生成」等插件</li>
+                <li><strong>编写开场白：</strong>在「开场白」栏设置欢迎语，如"你好！我是你的考研学习助手，请问你想复习哪个科目？"</li>
+                <li><strong>添加知识库（可选）：</strong>上传 PDF/Word 文档，让 AI 基于你的资料回答问题</li>
+                <li><strong>测试运行：</strong>点击右侧预览区的对话框，直接和你的智能体对话测试</li>
+                <li><strong>发布上线：</strong>点击右上角「发布」→ 选择发布到「飞书」或「微信公众号」→ 确认发布</li>
+              </ol>
+              <p style="color:var(--mid);font-size:13px;margin-top:12px;">💡 Coze 的优势是零代码、可视化，从创建到发布全程鼠标操作，适合所有技术水平的用户。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OpenClaw 实操教程 -->
+        <div class="card" style="margin-bottom:16px;border-left:4px solid var(--primary);">
+          <div class="card-body">
+            <h3 class="card-title">🦀 OpenClaw：自托管多模型 Agent 部署指南</h3>
+            <div class="card-desc">
+              <p style="margin-bottom:12px;"><strong>前置条件：</strong>已安装 Docker Desktop（<a href="https://www.docker.com/products/docker-desktop/" target="_blank">下载地址</a>），电脑至少 8GB 内存。</p>
+              <ol style="margin-left:20px;line-height:2.2;font-size:14px;">
+                <li><strong>获取项目：</strong>从 OpenClaw 官方获取 docker-compose.yml 配置文件</li>
+                <li><strong>配置环境：</strong>在项目目录下创建 <code>.env</code> 文件，填入各 AI 平台的 API Key（按需配置）</li>
+                <li><strong>启动服务：</strong>打开终端执行 <code>docker compose up -d</code>，等待所有容器启动完成</li>
+                <li><strong>访问面板：</strong>浏览器打开 <code>http://localhost:3000</code>，进入管理后台</li>
+                <li><strong>配置模型：</strong>在「模型管理」中添加已配置 API Key 的模型提供商</li>
+                <li><strong>创建 Agent：</strong>在「智能体」页面新建 Agent，选择使用的模型、设定人设、配置工具</li>
+                <li><strong>测试部署：</strong>在对话框中测试 Agent 响应，确认功能正常</li>
+              </ol>
+              <div class="tip tip-warn" style="margin-top:12px;">
+                <strong>注意：</strong>OpenClaw 需要基础命令行和 Docker 操作能力。如果这些概念陌生，建议先学完 Coze 再来。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dify 实操教程 -->
+        <div class="card" style="margin-bottom:16px;border-left:4px solid var(--warning);">
+          <div class="card-body">
+            <h3 class="card-title">⚡ Dify：搭建知识库问答 Agent</h3>
+            <div class="card-desc">
+              <p style="margin-bottom:12px;"><strong>前置条件：</strong>已安装 Docker Desktop。</p>
+              <ol style="margin-left:20px;line-height:2.2;font-size:14px;">
+                <li><strong>一键部署：</strong>终端执行 <code>git clone https://github.com/langgenius/dify.git && cd dify/docker && docker compose up -d</code></li>
+                <li><strong>初始化设置：</strong>浏览器打开 <code>http://localhost</code>，设置管理员账号密码</li>
+                <li><strong>创建知识库：</strong>进入「知识库」→ 新建 → 上传文档（PDF/Word/TXT）→ 等待向量化完成</li>
+                <li><strong>创建应用：</strong>进入「工作室」→ 创建「聊天助手」→ 关联上一步的知识库</li>
+                <li><strong>编排工作流：</strong>在编排页面拖拽「开始」「LLM」「知识检索」「回答」节点，连线形成工作流</li>
+                <li><strong>选择模型：</strong>可使用 Ollama 本地模型或接入 OpenAI/DeepSeek API</li>
+                <li><strong>发布使用：</strong>点击右上角「发布」→ 生成 WebApp 链接，直接分享给他人使用</li>
+              </ol>
+              <p style="color:var(--mid);font-size:13px;margin-top:12px;">💡 Dify 的 RAG 知识库功能非常适合企业内部文档查询、产品客服问答等场景。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 本地部署 -->
+      <div id="local-deploy" style="margin-bottom:56px;">
+        <h2 style="font-size:22px;font-weight:700;margin-bottom:6px;">🖥️ 本地模型部署</h2>
+        <p style="font-size:14px;color:var(--mid);margin-bottom:20px;">在自己的电脑上运行 AI 模型，数据完全不出本机，适合隐私敏感或离线场景。</p>
+
+        <!-- 硬件要求 -->
+        <div class="card" style="margin-bottom:16px;border-left:4px solid #f59e0b;">
+          <div class="card-body">
+            <h3 class="card-title">📋 硬件要求速查</h3>
+            <div class="card-desc">
+              <table style="width:100%;border-collapse:collapse;font-size:13px;">
+                <thead><tr style="border-bottom:2px solid var(--border);"><th style="text-align:left;padding:8px;">方案</th><th style="text-align:left;padding:8px;">最低配置</th><th style="text-align:left;padding:8px;">推荐配置</th></tr></thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;">Ollama + Qwen 1.5B</td><td style="padding:8px;">4GB 显存 / 8GB 内存</td><td style="padding:8px;">8GB 显存</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;">Ollama + Qwen 7B</td><td style="padding:8px;">8GB 显存</td><td style="padding:8px;">12GB 显存</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:8px;">Ollama + Llama 3.1 70B</td><td style="padding:8px;">48GB 显存</td><td style="padding:8px;">80GB 显存 (A100)</td></tr>
+                  <tr><td style="padding:8px;">Fooocus AI 绘图</td><td style="padding:8px;">8GB 显存</td><td style="padding:8px;">12GB 显存</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-body">
+            <h3 class="card-title">推荐部署方案</h3>
+            <div class="card-desc">
+              <ul style="margin-left:20px;">
+                <li style="margin-bottom:8px;"><strong>最简单方案：</strong>Ollama + Fooocus（AI绘图）—— 安装即用，命令行一条搞定</li>
+                <li style="margin-bottom:8px;"><strong>进阶方案：</strong>Ollama + Open WebUI —— 浏览器图形界面，像用 ChatGPT 一样用本地模型</li>
+                <li style="margin-bottom:8px;"><strong>专业方案：</strong>Ollama + Dify —— 本地模型 + RAG 知识库 + Agent 工作流</li>
+                <li><strong>Agent 方案：</strong>Ollama（本地模型）+ OpenClaw（Agent框架）—— 搭建私有化 AI Agent 系统</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ollama + Open WebUI 分步教程 -->
+        <div class="card" style="margin-bottom:16px;border-left:4px solid var(--success);">
+          <div class="card-body">
+            <h3 class="card-title">🦙 Ollama + Open WebUI：本地 ChatGPT 替代方案（7步）</h3>
+            <div class="card-desc">
+              <ol style="margin-left:20px;line-height:2.2;font-size:14px;">
+                <li><strong>安装 Ollama：</strong>打开 <a href="https://ollama.com/download" target="_blank">ollama.com/download</a>，下载 Windows 版安装包，双击安装</li>
+                <li><strong>下载模型：</strong>打开终端（PowerShell）执行 <code>ollama run qwen2.5:7b</code>，首次运行自动下载（约 4.4GB）</li>
+                <li><strong>测试模型：</strong>下载完成后直接在终端输入问题测试，输入 <code>/bye</code> 退出</li>
+                <li><strong>安装 Open WebUI：</strong>终端执行 <code>docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main</code></li>
+                <li><strong>访问界面：</strong>浏览器打开 <code>http://localhost:3000</code>，注册第一个账号（即管理员）</li>
+                <li><strong>关联模型：</strong>在设置中确认 Ollama 连接正常，界面左上角即可选择已下载的模型</li>
+                <li><strong>开始使用：</strong>和 ChatGPT 一样对话即可，所有数据完全在本地处理，无需联网</li>
+              </ol>
+              <p style="color:var(--mid);font-size:13px;margin-top:12px;">💡 这个方案是本地 AI 最推荐的入门路线，拥有图形界面，体验接近 ChatGPT。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title">详细教程</h3>
+            <div class="card-desc">
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+                <li><a href="../tools/local.html#ollama" style="color:var(--primary);">📖 Ollama 安装与使用指南</a></li>
+                <li><a href="https://juejin.cn/post/7531960461078183972" target="_blank" style="color:var(--primary);">📖 Ollama+DeepSeek+Dify 零门槛全攻略（掘金）</a></li>
+                <li><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" target="_blank" style="color:var(--primary);">📖 Stable Diffusion WebUI 安装</a></li>
+                <li><a href="https://github.com/lllyasviel/Fooocus" target="_blank" style="color:var(--primary);">📖 Fooocus（最简单的 SD 界面）</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 资源 -->
+      <div style="background:var(--lighter);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;">
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:14px;">📚 深度学习资源</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+          <li style="font-size:14px;"><a href="https://github.com/didilili/ai-agents-from-zero" target="_blank" style="color:var(--primary);">📖 AI Agent 从零实战（GitHub）</a> <span style="color:var(--mid);font-size:13px;">— 覆盖 LangChain / CrewAI / Dify 等框架</span></li>
+          <li style="font-size:14px;"><a href="https://cloud.tencent.com/developer/article/2610818" target="_blank" style="color:var(--primary);">📖 2026年AI学习完整指南（腾讯云）</a> <span style="color:var(--mid);font-size:13px;">— Transformer架构、LoRA微调、云端部署</span></li>
+          <li style="font-size:14px;"><a href="https://juejin.cn/post/7531960461078183972" target="_blank" style="color:var(--primary);">📖 手把手玩转本地大模型（掘金）</a> <span style="color:var(--mid);font-size:13px;">— Ollama+DeepSeek+Dify 完整流程</span></li>
+          <li style="font-size:14px;"><a href="https://jishuzhan.net/article/1911433163450155009" target="_blank" style="color:var(--primary);">📖 Dify + Ollama 本地部署（技术栈）</a> <span style="color:var(--mid);font-size:13px;">— Docker 部署完整教程</span></li>
+          <li style="font-size:14px;"><a href="https://zhuanlan.zhihu.com/p/2025624166766789705" target="_blank" style="color:var(--primary);">📖 AI学习4大方向详解（知乎）</a> <span style="color:var(--mid);font-size:13px;">— AIGC设计/开发/数据分析/应用</span></li>
+        </ul>
+      </div>
+
+    </div><!-- .content-main -->
+
+    <aside class="content-sidebar">
+      <div class="sidebar-box">
+        <h3>🧭 学习路径</h3>
+        <ul class="sidebar-nav">
+          <li><a href="beginner.html">🌱 零基础入门</a></li>
+          <li><a href="intermediate.html">📈 进阶提升</a></li>
+          <li><a href="advanced.html" class="active">🚀 深度应用</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 本页导航</h3>
+        <ul class="sidebar-nav">
+          <li><a href="#">🤖 AI Agent 搭建</a></li>
+          <li><a href="#">🖥️ 本地模型部署</a></li>
+          <li><a href="#">📚 深度学习资源</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-box">
+        <h3>🔗 工具导航</h3>
+        <ul class="sidebar-nav">
+          <li><a href="../tools/local.html#openclaw">OpenClaw</a></li>
+          <li><a href="../tools/local.html#coze">Coze 扣子</a></li>
+          <li><a href="../tools/local.html#dify">Dify</a></li>
+          <li><a href="../tools/local.html#ollama">Ollama</a></li>
+          <li><a href="../tools/local.html#hermes">Hermes Agent</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div><!-- .content-grid -->
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="beginner.html">零基础入门</a><a href="intermediate.html">进阶提升</a><a href="advanced.html">深度应用</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="../tools/chat.html">AI 对话助手</a><a href="../tools/image.html">AI 绘图工具</a><a href="../tools/video.html">AI 视频 / 音乐</a><a href="../tools/local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 零启AI · 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>

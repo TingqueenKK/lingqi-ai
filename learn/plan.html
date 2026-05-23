@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>24周系统学习计划 — 零启AI</title>
+  <meta name="description" content="从零开始，24周系统掌握AI。涵盖认知建立、工具熟练、智能体搭建、视频制作、进阶提升五大阶段。">
+  <meta property="og:title" content="24周系统学习计划 — 零启AI">
+  <meta property="og:description" content="从零开始，24周系统掌握AI。涵盖认知建立、工具熟练、智能体搭建、视频制作、进阶提升五大阶段。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="零启AI">
+  <meta property="og:url" content="https://lingqi-ai.pages.dev/learn/plan.html">
+  <meta property="og:image" content="https://lingqi-ai.pages.dev/assets/og-cover.png">
+  <link rel="canonical" href="https://lingqi-ai.pages.dev/learn/plan.html">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .plan-overview {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin: 24px 0 40px;
+    }
+    .overview-item {
+      text-align: center;
+      padding: 20px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--white);
+      transition: all .2s;
+    }
+    .overview-item:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .overview-icon { font-size: 28px; margin-bottom: 8px; }
+    .overview-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+    .overview-item .weeks { font-size: 12px; color: var(--mid); margin-bottom: 6px; }
+    .overview-item .hours { font-size: 12px; color: var(--primary); font-weight: 600; }
+    .phase-1 .overview-item { border-top: 3px solid var(--success); }
+    .phase-2 .overview-item { border-top: 3px solid var(--primary); }
+    .phase-3 .overview-item { border-top: 3px solid var(--warning); }
+    .phase-4 .overview-item { border-top: 3px solid var(--danger); }
+    .phase-5 .overview-item { border-top: 3px solid var(--accent); }
+    @media(max-width:900px){ .plan-overview{grid-template-columns:repeat(3,1fr);} }
+    @media(max-width:640px){ .plan-overview{grid-template-columns:repeat(2,1fr);} }
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">零启AI</a>
+    <ul class="nav-links">
+      <li><a href="index.html">学习路径</a></li>
+      <li class="has-sub">
+        <a href="../tools/index.html">AI工具库</a>
+        <ul class="sub-menu">
+          <li><a href="../tools/chat.html">AI 对话助手</a></li>
+          <li><a href="../tools/image.html">AI 绘图工具</a></li>
+          <li><a href="../tools/video.html">AI 视频 / 音乐</a></li>
+          <li><a href="../tools/local.html">本地 AI / 智能体</a></li>
+          <li><a href="../tools/notes.html">笔记软件</a></li>
+        </ul>
+      </li>
+      <li><a href="../compare/index.html">功能对比</a></li>
+      <li><a href="plan.html" class="active">学习计划</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">首页</a><span>›</span><a href="index.html">学习路径</a><span>›</span><span>24周学习计划</span>
+</div>
+
+<section class="page-hero">
+  <h1>📅 24周 AI 系统学习计划</h1>
+  <p>从零基础到独立应用，5个阶段，约225-290小时。按每天1-2小时，约6-12个月完成。</p>
+</section>
+
+<div class="main-content">
+
+  <div class="tip tip-info">
+    <strong>怎么用这个计划？</strong>不要追求一次学完所有内容，按阶段循序渐进。边学边用，每学一个功能就立刻在生活中使用。看10个教程不如动手做1个项目。
+  </div>
+
+  <!-- 阶段总览 -->
+  <h2 style="font-size:20px;font-weight:800;margin:32px 0 16px;">五大阶段总览</h2>
+  <div class="plan-overview">
+    <div class="overview-item" style="border-top:3px solid var(--success);">
+      <div class="overview-icon">🌱</div>
+      <h4>认知建立</h4>
+      <div class="weeks">第 1-2 周</div>
+      <div class="hours">15-20 小时</div>
+    </div>
+    <div class="overview-item" style="border-top:3px solid var(--primary);">
+      <div class="overview-icon">⚡</div>
+      <h4>工具熟练</h4>
+      <div class="weeks">第 3-6 周</div>
+      <div class="hours">40-50 小时</div>
+    </div>
+    <div class="overview-item" style="border-top:3px solid var(--warning);">
+      <div class="overview-icon">🤖</div>
+      <h4>智能体搭建</h4>
+      <div class="weeks">第 7-10 周</div>
+      <div class="hours">40-50 小时</div>
+    </div>
+    <div class="overview-item" style="border-top:3px solid var(--danger);">
+      <div class="overview-icon">🎬</div>
+      <h4>视频制作</h4>
+      <div class="weeks">第 11-16 周</div>
+      <div class="hours">70-90 小时</div>
+    </div>
+    <div class="overview-item" style="border-top:3px solid var(--accent);">
+      <div class="overview-icon">🚀</div>
+      <h4>进阶提升</h4>
+      <div class="weeks">第 17-24 周</div>
+      <div class="hours">60-80 小时</div>
+    </div>
+  </div>
+
+  <!-- ===== 阶段一 ===== -->
+  <div class="plan-timeline">
+    <div class="plan-phase">
+      <div class="plan-phase-dot"></div>
+      <div class="plan-phase-header">
+        <h3>🌱 阶段一：AI 认知建立期</h3>
+        <span class="phase-weeks">第 1-2 周</span>
+      </div>
+      <div class="phase-goal"><strong>目标：</strong>建立对 AI 的基本认知，了解 AI 能做什么、不能做什么</div>
+
+      <div class="plan-week">
+        <strong>第1周 · 科普扫盲</strong><span class="hours">6-8h</span>
+        <br>观看科普视频建立认知：
+        <a href="https://www.bilibili.com/video/BV1134y1d72L" target="_blank" style="color:var(--primary);">《一次看懂人工智能》</a>（科普中国·38万播放）、
+        央视《你好AI》《智能时代》纪录片、李永乐老师AI讲解系列。
+        <br>注册并体验 2-3 个主流AI工具（<a href="../tools/chat.html#kimi">Kimi</a> / <a href="../tools/chat.html#doubao">豆包</a> / <a href="../tools/chat.html#deepseek">DeepSeek</a>）<span class="hours">3-4h</span>
+      </div>
+      <div class="plan-week">
+        <strong>第2周 · 系统入门</strong><span class="hours">6-9h</span>
+        <br>学习 <a href="https://www.coursera.org/learn/ai-for-everyone" target="_blank" style="color:var(--primary);">吴恩达 AI for Everyone</a>（B站搜索中文字幕版）<span class="hours">4-6h</span>
+        <br>了解当前 AI 行业格局和发展趋势<span class="hours">2-3h</span>
+      </div>
+      <div class="plan-output">✅ 阶段产出：能用 AI 工具完成基本的对话、问答、翻译任务</div>
+    </div>
+
+    <!-- ===== 阶段二 ===== -->
+    <div class="plan-phase">
+      <div class="plan-phase-dot"></div>
+      <div class="plan-phase-header">
+        <h3>⚡ 阶段二：AI 工具熟练期</h3>
+        <span class="phase-weeks">第 3-6 周</span>
+      </div>
+      <div class="phase-goal"><strong>目标：</strong>熟练使用 3-5 个主流 AI 工具，掌握基本提示词技巧</div>
+
+      <div class="plan-week">
+        <strong>第3周 · 深度使用一个主力工具</strong><span class="hours">9-12h</span>
+        <br>选择 <a href="../tools/chat.html#kimi">Kimi</a> 或 <a href="../tools/chat.html#deepseek">DeepSeek</a> 深度使用，学习提示词基础技巧（角色设定法、明确任务法）
+      </div>
+      <div class="plan-week">
+        <strong>第4周 · Prompt Engineering 系统学习</strong><span class="hours">8-12h</span>
+        <br>学习
+        <a href="https://www.bilibili.com/video/BV1GZ5D6qEm2" target="_blank" style="color:var(--primary);">吴恩达提示词工程全课程</a>、
+        <a href="https://www.promptingguide.ai/zh" target="_blank" style="color:var(--primary);">DAIR.AI 提示工程指南</a>、
+        Prompt 实战练习（思维链 CoT、少样本 Few-shot）
+      </div>
+      <div class="plan-week">
+        <strong>第5周 · AI+办公实战</strong><span class="hours">9-12h</span>
+        <br>用 AI 辅助文档处理、PPT 生成、数据分析，体验 AI 提升办公效率
+      </div>
+      <div class="plan-week">
+        <strong>第6周 · 综合实战 + 复盘</strong><span class="hours">8-11h</span>
+        <br>用 AI 完成一项真实工作任务 + 复盘整理提示词模板
+      </div>
+      <div class="plan-output">✅ 阶段产出：能用 AI 高效完成办公任务，掌握常用 Prompt 模板</div>
+    </div>
+
+    <!-- ===== 阶段三 ===== -->
+    <div class="plan-phase">
+      <div class="plan-phase-dot"></div>
+      <div class="plan-phase-header">
+        <h3>🤖 阶段三：智能体搭建期</h3>
+        <span class="phase-weeks">第 7-10 周</span>
+      </div>
+      <div class="phase-goal"><strong>目标：</strong>学会搭建自己的 AI 智能体</div>
+
+      <div class="plan-week">
+        <strong>第7周 · Coze 入门</strong><span class="hours">9-12h</span>
+        <br>创建第一个 <a href="../tools/local.html#coze">Coze 智能体</a>，学习 Prompt 结构化编写
+        <br>推荐教程：<a href="https://www.bilibili.com/video/BV1NxLu63Eww" target="_blank" style="color:var(--primary);">Coze 扣子从入门到精通实战</a>
+      </div>
+      <div class="plan-week">
+        <strong>第8周 · 进阶：工作流 + 插件 + 知识库</strong><span class="hours">10-14h</span>
+        <br>搭建 2-3 个实用智能体（如：学习助手、内容创作Agent、客服机器人）
+      </div>
+      <div class="plan-week">
+        <strong>第9周 · 了解其他 Agent 平台</strong><span class="hours">7-10h</span>
+        <br>了解 <a href="../tools/local.html#openclaw">OpenClaw</a>、<a href="../tools/local.html#dify">Dify</a>、GPTs 等平台的差异和适用场景
+      </div>
+      <div class="plan-week">
+        <strong>第10周 · 智能体实战项目 + 复盘</strong><span class="hours">10-13h</span>
+        <br>完成一个综合智能体项目，解决实际需求
+      </div>
+      <div class="plan-output">✅ 阶段产出：能独立搭建 3-5 个实用 AI 智能体</div>
+    </div>
+
+    <!-- ===== 阶段四 ===== -->
+    <div class="plan-phase">
+      <div class="plan-phase-dot"></div>
+      <div class="plan-phase-header">
+        <h3>🎬 阶段四：AI 视频制作入门期</h3>
+        <span class="phase-weeks">第 11-16 周</span>
+      </div>
+      <div class="phase-goal"><strong>目标：</strong>掌握 AI 视频制作全流程</div>
+
+      <div class="plan-week">
+        <strong>第11周 · 剪映 AI 功能入门</strong><span class="hours">9-12h</span>
+        <br>剪映基础操作 + AI脚本生成 + AI配音，推荐 <a href="../tools/video.html#capcut">剪映创作课堂</a>
+      </div>
+      <div class="plan-week">
+        <strong>第12周 · AI 字幕 + AI 特效 + 调色</strong><span class="hours">10-14h</span>
+        <br>制作第一条 AI 辅助短视频，体验完整工作流
+      </div>
+      <div class="plan-week">
+        <strong>第13周 · AI 图片生成入门</strong><span class="hours">9-12h</span>
+        <br>
+        <a href="../tools/image.html#midjourney">Midjourney 入门</a>：AI图片生成 + 提示词技巧
+        <br>推荐：<a href="https://www.bilibili.com/video/BV1PMcoeZEzE" target="_blank" style="color:var(--primary);">Midjourney 2025 完全使用教程</a>（14万播放）
+      </div>
+      <div class="plan-week">
+        <strong>第14周 · AI 视频生成工具</strong><span class="hours">10-14h</span>
+        <br>学习 <a href="../tools/video.html#kling">可灵AI</a> / <a href="../tools/video.html#jimeng">即梦AI</a> 图生视频实战
+        <br>推荐：<a href="https://www.bilibili.com/video/BV1AAL76FEgv" target="_blank" style="color:var(--primary);">可灵AI 3.0 保姆级教程</a>
+      </div>
+      <div class="plan-week">
+        <strong>第15周 · Stable Diffusion 入门（可选）</strong><span class="hours">10-14h</span>
+        <br>本地部署 + 基础出图，推荐 <a href="https://www.bilibili.com/video/BV1LK9dYREDJ" target="_blank" style="color:var(--primary);">SD 100集保姆级教程</a>
+      </div>
+      <div class="plan-week">
+        <strong>第16周 · 综合实战</strong><span class="hours">10-12h</span>
+        <br>用 AI 完成一个完整视频项目（脚本→配音→出图→生成视频→剪辑→发布）
+      </div>
+      <div class="plan-output">✅ 阶段产出：能独立用 AI 工具完成短视频制作</div>
+    </div>
+
+    <!-- ===== 阶段五 ===== -->
+    <div class="plan-phase">
+      <div class="plan-phase-dot"></div>
+      <div class="plan-phase-header">
+        <h3>🚀 阶段五：进阶提升期</h3>
+        <span class="phase-weeks">第 17-24 周</span>
+      </div>
+      <div class="phase-goal"><strong>目标：</strong>深化技能，建立个人 AI 工作流</div>
+
+      <div class="plan-week">
+        <strong>第17-18周 · Prompt 高级技巧 + AI 编程入门</strong><span class="hours">14-20h</span>
+        <br>CoT、Few-shot 等高级 Prompt 技巧 + 用 <a href="https://www.bilibili.com/video/BV173L46yEdm" target="_blank" style="color:var(--primary);">Cursor</a> 等 AI 编程工具辅助写代码
+      </div>
+      <div class="plan-week">
+        <strong>第19-20周 · AI 创作进阶</strong><span class="hours">16-20h</span>
+        <br>AI 图片生成进阶（LoRA训练、ControlNet）+ AI 视频生成进阶
+      </div>
+      <div class="plan-week">
+        <strong>第21-22周 · 建立个人 AI 工作流</strong><span class="hours">14-18h</span>
+        <br>将各阶段学到的工具组合成自己的工作流 + 学习跟进 AI 最新动态
+        <br>关注「通往AGI之路」社区，每周花时间浏览最新资讯
+      </div>
+      <div class="plan-week">
+        <strong>第23-24周 · 综合项目 + 全面复盘</strong><span class="hours">19-26h</span>
+        <br>完成一个综合性 AI 项目 + 整理学习笔记和 Prompt 模板库
+      </div>
+      <div class="plan-output">✅ 阶段产出：形成个人 AI 工具使用体系，能综合运用 AI 工具解决实际问题</div>
+    </div>
+  </div>
+
+  <!-- 推荐视频教程（按阶段分组嵌入） -->
+  <h2 style="font-size:20px;font-weight:800;margin:40px 0 16px;">📺 配套视频教程</h2>
+  <p style="color:var(--mid);font-size:14px;margin-bottom:24px;">每个学习阶段对应的精选 B 站教程，点击封面直接观看。</p>
+
+  <h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--success);">🌱</span> 阶段一：认知建立</h3>
+  <div class="video-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+    <a href="https://www.bilibili.com/video/BV1134y1d72L" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i2.hdslb.com/bfs/archive/33c230315cd7dd2a974e66996b81a8cd3c48c0a1.jpg" alt="一次看懂人工智能" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">33:03</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">【硬核科普】一次看懂人工智能</div>
+        <div class="video-meta"><span>科普中国</span><span>▶ 38.5万</span><span class="video-badge hot">热门</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--primary);">⚡</span> 阶段二：工具熟练 + 提示词</h3>
+  <div class="video-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+    <a href="https://www.bilibili.com/video/BV1GZ5D6qEm2" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i1.hdslb.com/bfs/archive/892ea2ae957c58018065fb8781be2105f7df2451.jpg" alt="吴恩达提示词工程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">1:33:59</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">吴恩达2026公认最好的《提示词工程》教程</div>
+        <div class="video-meta"><span>吴恩达Agentic</span><span>▶ 1452</span><span class="video-badge new">最新</span></div>
+      </div>
+    </a>
+    <a href="https://www.bilibili.com/video/BV1PZGt6HEt8" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i1.hdslb.com/bfs/archive/41f6148903ed32da674462be303373b285b2313f.jpg" alt="吴恩达AI提示词" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">2:09:08</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">【吴恩达】2026最新《给所有人的AI提示词》</div>
+        <div class="video-meta"><span>吴恩达的AI课</span><span>▶ 460</span><span class="video-badge new">最新</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--warning);">🤖</span> 阶段三：智能体搭建</h3>
+  <div class="video-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+    <a href="https://www.bilibili.com/video/BV1NxLu63Eww" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i0.hdslb.com/bfs/archive/7c05bcd8628a7f167127cac00179ecfe9714c7b9.jpg" alt="Coze扣子教程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">9:28:55</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">【2026最新版】Coze扣子从入门到精通实战教程</div>
+        <div class="video-meta"><span>Come-小伽</span><span>▶ 1344</span><span class="video-badge new">最新</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--danger);">🎬</span> 阶段四：视频制作 + 图片生成</h3>
+  <div class="video-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+    <a href="https://www.bilibili.com/video/BV1PMcoeZEzE" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i0.hdslb.com/bfs/archive/894b6b8c24a2299b78d950eecd0e41851d9c907c.jpg" alt="Midjourney教程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">21:03</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">Midjourney 2025 完全使用教程</div>
+        <div class="video-meta"><span>马克的技术工作坊</span><span>▶ 14.1万</span><span class="video-badge hot">热门</span></div>
+      </div>
+    </a>
+    <a href="https://www.bilibili.com/video/BV1LK9dYREDJ" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i2.hdslb.com/bfs/archive/fb8994fc8498efc65ddb4d67a8efcf3df57bcf74.png" alt="SD教程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">4:55:34</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">【全100集】Stable Diffusion保姆级教程</div>
+        <div class="video-meta"><span>开始学Ai绘画</span><span>▶ 5604</span><span class="video-badge hot">热门</span></div>
+      </div>
+    </a>
+    <a href="https://www.bilibili.com/video/BV1AAL76FEgv" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i0.hdslb.com/bfs/archive/cc73ac818c66bb3a2aa5bc9d5770915618f52cc1.jpg" alt="可灵AI教程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">2:33:12</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">【全20集】可灵AI3.0独家保姆级教程</div>
+        <div class="video-meta"><span>AI漫剧设计人</span><span>▶ 3295</span><span class="video-badge new">最新</span></div>
+      </div>
+    </a>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;margin:28px 0 12px;display:flex;align-items:center;gap:8px;"><span style="color:var(--accent);">🚀</span> 阶段五：进阶提升</h3>
+  <div class="video-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:8px;">
+    <a href="https://www.bilibili.com/video/BV173L46yEdm" target="_blank" class="video-card">
+      <div class="video-thumb">
+        <img src="https://i0.hdslb.com/bfs/archive/1ca6bee98611001ec28ae45f9feeae09a7d2593a.jpg" alt="Cursor教程" loading="lazy" onerror="this.style.display='none'">
+        <span class="video-duration">2:37:42</span>
+        <div class="video-play-overlay"><div class="video-play-btn"></div></div>
+      </div>
+      <div class="video-info">
+        <div class="video-title">2026最新版Cursor安装教程，史上最强AI编程工具</div>
+        <div class="video-meta"><span>这不是我的名字噻</span><span>▶ 1290</span><span class="video-badge new">最新</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- 学习建议 -->
+  <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-top:40px;">
+    <h3 style="font-size:18px;font-weight:700;margin-bottom:16px;">💡 学习建议与注意事项</h3>
+    <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;">
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">1.</span>不要追求一次性学完所有内容，按阶段循序渐进</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">2.</span>边学边用，每学一个功能就立刻在生活中使用</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">3.</span>做好笔记，用 <a href="../tools/notes.html">Obsidian</a> 记录学习心得和 Prompt 模板</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">4.</span>定期复盘，每周花 30 分钟回顾本周学习收获</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">5.</span>关注 AI 动态，每周浏览「<a href="https://waytoagi.com" target="_blank" style="color:var(--primary);">通往AGI之路</a>」社区</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">6.</span>实践优先，看 10 个教程不如动手做 1 个项目</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">7.</span>B站是最大的免费课堂，善用搜索找到优质教程</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">8.</span>注意辨别信息质量，优先选择知名UP主和官方出品</li>
+      <li style="font-size:14px;color:var(--dark-3);display:flex;gap:8px;"><span style="color:var(--primary);font-weight:700;">9.</span>保持好奇心，AI领域日新月异，持续学习是唯一不变的策略</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><h3>零启AI</h3><p>面向中文用户的 AI 学习导航站</p></div>
+      <div class="footer-col"><h4>学习路径</h4><a href="beginner.html">零基础入门</a><a href="intermediate.html">进阶提升</a><a href="advanced.html">深度应用</a><a href="plan.html">24周学习计划</a></div>
+      <div class="footer-col"><h4>AI 工具库</h4><a href="../tools/chat.html">AI 对话助手</a><a href="../tools/image.html">AI 绘图工具</a><a href="../tools/video.html">AI 视频 / 音乐</a><a href="../tools/local.html">本地 AI / 智能体</a></div>
+      <div class="footer-col"><h4>更多</h4><a href="../compare/index.html">功能对比</a><a href="../tools/notes.html">笔记软件</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2026 零启AI &middot; 内容仅供学习参考</p></div>
+  </div>
+</footer>
+<script src="../app.js"></script>
+</body>
+</html>
